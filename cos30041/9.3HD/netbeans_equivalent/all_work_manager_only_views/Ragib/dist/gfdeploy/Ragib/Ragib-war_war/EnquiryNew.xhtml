@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+
+        <title>Ragib Televisions (Enquiry)</title> 
+    </head>
+    <body>
+
+
+
+
+        <h1 id="bring_down">Enquiry</h1>
+
+        <article id= "Faq_no_b">
+
+            <section>
+                <h:form id="payment">
+                    <table>
+                        <tbody>
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Transaction ID:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="transaction_id" 
+                                                 maxlength="5"
+
+                                                 value="#{myCustomerManagedBean.transaction_id}"
+                                                 > 
+
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="First Name:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="firstname" 
+                                                 maxlength="20"
+
+                                                 value="#{myCustomerManagedBean.firstname}"
+                                                 >
+
+                                    </h:inputText>
+                                </td>
+                              
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Last Name:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="lastname" 
+                                                 maxlength="20"
+
+                                                 value="#{myCustomerManagedBean.lastname}"
+                                                 >
+
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Email:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="email" 
+                                                 maxlength="20"
+
+                                                 value="#{myCustomerManagedBean.email}"
+                                                 >
+
+
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Address:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="address" 
+                                                 maxlength="20"
+
+                                                 value="#{myCustomerManagedBean.address}"> 
+
+                                    </h:inputText>
+                                    <!--no need regex for address as it can have special characters in them-->
+                                </td>
+
+                            </tr>
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Suburb:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="suburb" 
+                                                 maxlength="20"
+
+                                                 value="#{myCustomerManagedBean.suburb}">     
+
+                                    </h:inputText>
+                                    <!--no need regex for suburb as it can have special characters in them-->
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Postcode:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="postcode" 
+                                                 maxlength="20"
+
+                                                 value="#{myCustomerManagedBean.postcode}"
+                                                 > 
+
+
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Phone Number:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="phone" 
+                                                 maxlength="20"
+
+                                                 value="#{myCustomerManagedBean.phone}"
+                                                 > 
+
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Product Name:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="product_name" 
+                                                 maxlength="20"
+
+                                                 value="#{myCustomerManagedBean.product_name}"
+                                                 > 
+
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Quantity:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="quantity" 
+                                                 maxlength="20"
+
+                                                 value="#{myCustomerManagedBean.quantity}"
+                                                 >                                     
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Comment:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="comment" 
+                                                 maxlength="20"
+                                                 value="#{myCustomerManagedBean.comment}">  
+
+                                        <!--no need regex for comment as it can have special characters in them-->
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card Name:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="credit_card_name" 
+                                                 maxlength="40"
+
+                                                 value="#{myCustomerManagedBean.credit_card_name}"
+                                                 > 
+
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card Number"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="credit_card_number" 
+                                                 maxlength="16"
+
+                                                 value="#{myCustomerManagedBean.credit_card_number}"
+                                                 > 
+
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card Expiration Date"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="credit_card_expiry_date" 
+                                                 maxlength="4"
+
+                                                 value="#{myCustomerManagedBean.credit_card_expiry_date}"
+                                                 > 
+
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card CVV"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="credit_card_CVV" 
+                                                 maxlength="3"
+
+                                                 value="#{myCustomerManagedBean.credit_card_CVV}"
+                                                 > 
+
+                                    </h:inputText>
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+                    <h:commandButton id="submit" value="Submit" 
+                                     action="#{myCustomerManagedBean.addCustomerTransaction()}"/>
+
+
+                </h:form>
+
+
+
+
+            </section>
+
+
+        </article>
+
+
+    </body>
+</html>
+
