@@ -1,0 +1,302 @@
+enable
+conf t
+line console 0
+logging synchronous
+exec-timeout 0 0
+no ip domain-lookup
+end
+
+
+enable 
+conf t
+banner motd $**************
+Welcome to TandurSwitch
+103172423  Rezwan    9:48am
+******************$
+end
+
+enable
+conf t
+hostname TandurSwitch
+end 
+
+
+enable 
+conf t
+banner motd $**************
+Welcome to TandurRouter
+103172423  Rezwan    9:48am
+******************$
+end
+
+enable
+conf t
+hostname TandurRouter
+end 
+
+
+enable 
+conf t
+banner motd $**************
+Welcome to SedamRouter
+103172423  Rezwan    9:48am
+******************$
+end
+
+enable
+conf t
+hostname SedamRouter
+end 
+
+
+enable 
+conf t
+banner motd $**************
+Welcome to ISPRouter
+103172423  Rezwan    9:48am
+******************$
+end
+
+enable
+conf t
+hostname ISPRouter
+end 
+.........................................................
+enable
+conf t
+vlan 423
+name french
+vlan 172
+name english
+vlan 256
+name hindi
+end
+
+enable 
+conf t
+int G1/0/11
+switchport mode trunk
+end
+
+
+enable 
+conf t
+int range G1/0/13-14
+switchport mode access
+switchport access vlan 423
+end
+
+
+enable 
+conf t
+int range G1/0/24
+switchport mode access
+switchport access vlan 172
+end
+
+enable
+conf t
+int range G0/0/1
+no shutdown
+
+enable 
+conf t 
+int Serial0/1/0
+no shutdown
+end
+
+
+enable 
+conf t 
+int Serial0/1/1
+no shutdown
+end
+
+
+
+enable
+conf t
+int range G1/0/13
+no shutdown
+
+enable 
+conf t
+int range G1/0/24
+switchport mode access
+switchport acess vlan 172
+end
+
+enable
+conf t 
+int vlan 1
+ip address 158.43.5.1 255.255.255.224
+end
+
+enable
+conf t 
+ip default-gateway 158.43.5.2 
+end
+
+
+
+
+sh ip int b
+sh vlan b
+
+
+enable 
+conf t
+line vty 0 15
+password cisco
+login 
+end
+
+
+enable
+conf t
+int range G1/0/13-14
+switchport port-security
+switchport port-security maximum 4
+switchport port-security violation protect
+switchport port-security mac-address sticky
+end
+
+
+
+enable
+conf t
+int range G1/0/24
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address 00-0C-29-97-0B-7C
+end
+
+
+
+enable
+conf t  
+int s0/1/0
+description serial link to R1
+ip address 158.43.5.34 255.255.255.252
+
+
+enable
+conf t  
+int s0/1/1
+description serial link to R3
+ip address 210.24.42.1 255.255.255.252
+end
+
+
+enable
+conf t  
+int s0/1/0
+description serial link to R2
+ip address 158.43.5.33 255.255.255.252
+end
+
+
+enable
+conf t  
+int s0/1/1
+description serial link to R2
+ip address 210.24.42.2 255.255.255.252
+end
+
+
+
+
+
+enable
+conf t  
+int lo0
+description external web server 1
+ip address 181.25.0.1 255.255.0.0
+end
+
+
+enable
+conf t  
+int lo1
+description external web server 2
+ip address 22.0.0.1 255.0.0.0
+end
+
+
+enable
+conf t  
+int lo2
+description external web server 3
+ip address 155.2.0.1 255.255.0.0
+end
+
+
+enable
+conf t  
+int lo3
+description external web server 4
+ip address 211.31.8.1 255.255.255.0
+end
+
+
+
+enable
+conf t  
+int lo1
+description Server Lan Database Server
+ip address 158.43.4.193 255.255.255.192
+end
+
+
+
+
+
+enable
+conf t
+int G0/0/1
+no  shutdown 
+end
+
+
+enable
+conf t
+int G0/0/1.1
+description subinterface for vlan 1
+encapsulation dot1Q 1
+ip address 158.43.5.2 255.255.255.224
+end
+
+
+enable
+conf t
+int G0/0/1.1
+description subinterface for vlan 1
+encapsulation dot1Q 1
+ip address 158. 255.255.255.224
+end
+
+
+enable
+conf t
+int G0/0/1.423
+description subinterface for vlan 423
+encapsulation dot1Q 423
+ip address 158.43.0.1 255.255.252.0
+end
+
+
+enable
+conf t
+int G0/0/1.172
+description subinterface for vlan 172
+encapsulation dot1Q 172
+ip address 158.43.4.1 255.255.255.128
+end
+
+netsh
+interface ip
+set address local static 158.43.4.2 255.255.255.128 158.43.4.1 
+
+
+
+set address static 158.43.4.2 255.255.255.128 158.43.4.1 

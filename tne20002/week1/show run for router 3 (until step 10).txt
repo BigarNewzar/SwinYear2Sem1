@@ -1,0 +1,189 @@
+show run for router 3
+
+ISPRouter#show run
+Building configuration...
+
+
+Current configuration : 2190 bytes
+!
+! Last configuration change at 00:18:55 UTC Sat Mar 5 2022
+!
+version 16.7
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+!
+hostname ISPRouter
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+!
+!
+!
+!
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+license udi pid ISR4321/K9 sn FDO21450487
+license boot suite FoundationSuiteK9
+license boot level securityk9
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ description external web server 1
+ ip address 181.25.0.1 255.255.0.0
+!
+interface Loopback1
+ description external web server 2
+ ip address 22.0.0.1 255.0.0.0
+!
+interface Loopback2
+ description external web server 3
+ ip address 155.2.0.1 255.255.0.0
+!
+interface Loopback3
+ description external web server 4
+ ip address 211.31.8.1 255.255.255.0
+!
+interface GigabitEthernet0/0/0
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet0/0/1
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface Serial0/1/0
+ no ip address
+ shutdown
+!
+interface Serial0/1/1
+ description serial link to R2
+ ip address 210.24.42.2 255.255.255.252
+!
+interface Serial0/2/0
+ no ip address
+ shutdown
+!
+interface Serial0/2/1
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ shutdown
+ negotiation auto
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip tftp source-interface GigabitEthernet0
+!
+!
+!
+!
+!
+!
+control-plane
+!
+banner motd ^C**************
+Welcome to ISPRouter
+103172423  Rezwan    9:48am
+******************^C
+!
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ transport input none
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+!
+wsma agent exec
+!
+wsma agent config
+!
+wsma agent filesys
+!
+wsma agent notify
+!
+!
+end
