@@ -1,0 +1,64 @@
+need to google these:
+7Z920------- 7-zip file launching produces this artefact
+7ZFM--------- 7-zip file launching process
+CAIN  (or cain and able)---password recovery tool for ms windows
+filezilla --- a free to use ftp software to allow users to transfer files to or from a remote computer by a standard method
+
+ftp.exe----file transfer smth
+gup.exe----ensures notepad++ is upto date
+ipcscan-gui.exe ----steals entire sensitive information like username, password, credit card number, etc get stolen by it and transfers to the remote server
+
+net, net1 ---used to stop and start ipv6 protocols
+nmap ----finding network vulnerebilities
+npp.5.9 ----notepad++ type file ig
+ns3a,b,c,d,e.tmp ---temporary backup or cache files
+nslookup ---query dns service and recieve ip address mapping details adn lookup dns records
+regsvr32---- used to register/ unresiter OLE controls like DLLS and activeX
+rundll32--- runs dlls
+wmiadap --- runs on windows that can update performance info in wmi repository
+wscntfy --- windows security notification application
+XMLUpdater ---updates XML documents
+Zenmap --- GUI for nmap scanner used to find net vulnerebilities
+
+
+Scenario-2 
+
+ASPNET_REGIIS.exe--- allows admin or installable progs to easily update script maps for asp.net application (asp encrypts and decrypts sections of web config files)
+dotnetfx.exe-- the .net framework used to build programs
+fiddler.exe--- free web debugging tool that logs all https traffic between pc and internet and can decrypt them (to and from any application)
+fiddler2setup---same as fiddler
+firefox setup
+iExplore  ---loading up internet explorer
+install.exe --- just install smth
+lodctr.exe  ---saving performance counters on resgistry
+logon.scr-151efaea --- related to problems with KMPlaye runtime
+matrix_KS
+matrix-1.scr  ----screensaver file
+M0FCOMP.exe ---parses file containing MOF statements (managed object format ) and takes the classes in file to the WMI repository
+MSCORSVW.exe  --- used by windows to precomplie stuff in background. Used by hakers to initiate "coin miner trojan"
+MSIMN.exe  --- outlook express mail files
+MSMSGS.exe --- old version of MSN messenger
+NETFX20SP2  --- its an MS software related to browsing 
+NGEN.exe-38021CCC  --- tool that improves performance of managed aplications
+REGSVCS.exe  --- remote registry manupulation
+REGTLIBV12  --- OS related software
+RUNDLL32.exe ---running dll
+
+
+Scenario-3
+
+DEFRAG.exe --- runs defragmentor
+DFRGNTFS.exe --- runs defragmentor
+FIRESHEEP-backend.exe  ---This firefox addon steals cookies (containing authentication information for websites) sent via HTTP over public wifi, allowing you to pwn unsuspecting wifi users facebook, gmail, twitter, flickr, youtube, etc accounts.
+helpsvc.exe  ---windows xp help service
+iexplore.exe ---internet explorer
+layout.ini ---shows list of files in order of referenced
+matrix-1.scr-1efe0608   ----screensaver file
+mspaint.exe
+notepad.exe
+plugin-container
+sychost   ---important windows process for hosting one or more windows services
+taskmanager
+
+
+
