@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CustomerTransactionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="TransactionId" />
+    </Key>
+    <Property Name="TransactionId" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="Firstname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Lastname" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Suburb" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Postcode" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Product" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Quantity" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Comment" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Credit_card_name" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="Credit_card_number" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="Credit_card_expiry_date" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="Credit_card_CVV" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="CustomerTransactionModelStoreContainer">
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
