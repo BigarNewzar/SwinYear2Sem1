@@ -1,0 +1,183 @@
+                  Autopsy string Report
+
+----------------------------------------------------------------------
+                   GENERAL INFORMATION
+
+File: C://RECYCLER/S-1-5-21-1935655697-1757981266-725345543-1003/Dc1.html
+MD5 of file: 624b2cdd6d4fe3bfcad3effbd92b354f  -
+SHA-1 of file: bd14a59c83bc096caff316333178a277acc7d92b  -
+MD5 of ASCII strings: 26aa937771949bbcd9c7982a4ccaa1f3  -
+SHA-1 of ASCII strings: 36819631b4c74fd565892a53d18454215218a937  -
+
+Image: '/var/lib/autopsy/Capstone/host1/images/ImaHacker.E01'
+Offset: 63 to 41913584
+File System Type: ntfs
+
+Date Generated: Thu May 19 09:51:14 2022
+Investigator: unknown
+
+----------------------------------------------------------------------
+                   META DATA INFORMATION
+
+MFT Entry Header Values:
+Entry: 11328        Sequence: 2
+$LogFile Sequence Number: 55664925
+Allocated File
+Links: 2
+
+$STANDARD_INFORMATION Attribute Values:
+Flags: Archive
+Owner ID: 0
+Security ID: 360  (S-1-5-21-1935655697-1757981266-725345543-1003)
+Created:	2009-03-04 00:48:50.421875000 (AEST)
+File Modified:	2009-03-04 00:49:09.312500000 (AEST)
+MFT Modified:	2009-03-04 00:49:43.515625000 (AEST)
+Accessed:	2009-03-04 00:49:32.468750000 (AEST)
+
+$FILE_NAME Attribute Values:
+Flags: Archive
+Name: Dc1.html
+Parent MFT Entry: 11331 	Sequence: 2
+Allocated Size: 16384   	Actual Size: 12837
+Created:	2009-03-04 00:48:50.421875000 (AEST)
+File Modified:	2009-03-04 00:49:09.312500000 (AEST)
+MFT Modified:	2009-03-04 00:49:09.312500000 (AEST)
+Accessed:	2009-03-04 00:49:09.312500000 (AEST)
+
+$OBJECT_ID Attribute Values:
+Object Id: 5d303829-0c00-1487-11de-07fe128faef2
+
+Attributes: 
+Type: $STANDARD_INFORMATION (16-0)   Name: N/A   Resident   size: 72
+Type: $FILE_NAME (48-6)   Name: N/A   Resident   size: 82
+Type: $FILE_NAME (48-7)   Name: N/A   Resident   size: 84
+Type: $OBJECT_ID (64-5)   Name: N/A   Resident   size: 16
+Type: $DATA (128-4)   Name: N/A   Non-Resident   size: 12837  init_size: 12837
+46509 46510 46511 46512 
+
+File Type: HTML document, ASCII text, with very long lines, with CRLF line terminators
+
+----------------------------------------------------------------------
+                        CONTENT
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Hack This Site!</title>
+  <meta name="verify-v1" content="s/YXn7eQrMBoF9PL5jLJDiWpAxEXpJzE9JLg/zM4C2Y=" />
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta name="Author" content="HackThisSite.org Crew." />
+  <meta name="Description" content="HackThisSite! is a legal and safe network security resource where users test their hacking skills on various challenges and learn about hacking and network security. Also provided are articles, comprehensive and active forums, and guides and tutorials. Learn how to hack!" />
+  <meta name="KeyWords" content="challenge, computer, culture, deface, digital, ethics, games, guide, hack, hack forums, hacker, hackers, hacking, hacking challenges, hacking forums, mission, net, programming, radical, revolution, root, rooting, security, site, society, tutorial, tutorials, war, wargame, wargames, web, website" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <link href="http://2.static.htscdn.org/themes/Dark/Dark.css" rel="stylesheet" type="text/css" />
+  <link href="http://www.hackthissite.org/pages/hts.rss.php" rel="alternate" type="application/rss+xml" title="HTS RSS feed" />
+  <base href="http://www.hackthissite.org" />
+</head>
+<body>
+<div id="topbar" align="center">
+<a href="http://www.hackthissite.org" id="active">HackThisSite</a> - <a href="irc://irc.hackthissite.org:+7000/">IRC</a> - <a href="http://www.hackthissite.org/forums">Forums</a> - <a href="http://www.cafepress.com/htsstore">Store</a></div>
+	<div align="center">
+<a href="/"><img src="http://2.static.htscdn.org/themes/Dark/images/header.jpg" alt="Header Logo" border="0" /></a>
+  	<div align="center" class="radical">
+<a href='http://www.hackthissite.org/dsQfKp40404FJ4p5onG159L3M2S8HQ2Vu9p886fff9Ax3C2067hI7t7z2CT4xt36NO58u0Aqsu18W8aMAe5Y14e2ysaGs5n3AQ' target='_blank'><img src='http://www.hackthissite.org/WVt8rM8Wo49Xx3bmSkTJkuzrHvHz72rl260Xb460xV9T838bBlJ7Gb8oGMKvTath9stp7658n2d5zUm9V39hIp2AhKuoz9l5yprvwZ1QoBUtRk1ZvBy5anL1JLgn8baM2y5ZzgoOlFq9rs5RK4360eMgdRq' width='358' height='52' alt='Acunetix - Scan Your Website For Vulnerabilities' id="aimg" title='Acunetix - Scan Your Website For Vulnerabilities' border='0' /></a><div id="beacon_1" style="position: absolute; left: 0px; top: 0px; padding: 0px; margin: 0px; visibility: hidden;"><img src='http://www.hackthissite.org/N34I1Fu6o85r2S2otopKP1t6Vt73CbxsN0xl3J7sQRPDZ4uzylI0kq4561838Iz366KCx404J61c8Jp47lY1R1KXRYJc1I56w68Ka26SdYL06WsDK6ISm0uwJCZ5I9999a88a0dd181bb45715a96d16aadd066H0668R' width='0' height='0' alt='' style='width: 0px; height: 0px;' /></div><br />[<a href="http://www.hackthissite.org/advertise/">Advertise With HackThisSite.org</a> :: <a href="http://www.hackthissite.org/donate"><strong>Hide These Ads</strong></a>]<!-- Kontera ContentLink(TM);-->
+<script type='text/javascript'>
+var dc_AdLinkColor = '#06464' ; 
+var dc_PublisherID = 79308 ; 
+</script>
+<script type='text/javascript' src='http://kona.kontera.com/javascript/lib/KonaLibInline.js'>
+</script>	</div>
+  <table width="780" border="0" cellpadding="0" cellspacing="0" class="siteheader">
+    <tr>
+      <td class="sitetopheader"><blockquote>Change your thoughts and you change your world.</blockquote></td>
+    </tr>
+    <tr>
+      <td><table width="100%"  border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="160" valign="top" class="navbar"><div align="center">
+            <br />
+            	<div>Hello, <a href="/user/view/imahacker72/">imahacker72</a><br />
+		<a href="/user/edit/1604182/">Settings</a> - <a href="/?logout">Logout</a><br /><br />
+		<a class="nav" href="/user/themes/"> Skin Chooser</a><br /><br />
+	<a class="nav" href="http://www.hackthissite.org/forums/ucp.php?i=pm">Private Messages</a><br />
+	<a class="nav" href="/pages/messages/msys/">HTS Messages Center</a><br />
+	You have 0 new messages.<br />
+	</div>
+	<h4 class="header">Donate</h4><p><a href="http://www.hackthissite.org/donate/"><img src="http://2.static.htscdn.org/images/donate.png" border="0" title="Donate to HackThisSite.org" alt="Donate to HackThisSite.org" /></a><br />
+HTS costs up to $300 a month to operate. We <strong>need</strong> your help!</p>
+<p>Donors also receive special recognition on our <a href="http://www.hackthissite.org/donate/donors">donors</a> page.</p>
+<h4 class="header">Challenges</h4>
+	<ul class="navigation">
+		<li><a class="nav" href="/missions/basic/">Basic missions</a></li><li><a class="nav" href="/missions/realistic/">Realistic missions</a></li><li><a class="nav" href="/missions/application/">Application missions</a></li><li><a class="nav" href="/missions/programming/">Programming missions</a></li><li><a class="nav" href="/missions/playit/extbasic/0/">Extbasic missions</a></li><li><a class="nav" href="/missions/javascript/">Javascript missions</a></li><li><a class="nav" href="/missions/playit/stego/0/">Stego missions</a></li><li><a class="nav" href="irc://irc.hackthissite.org/htb">Irc missions</a></li>	</ul>
+<h4 class="header">Get Informed</h4><ul class="navigation"><li><a class="nav" href="/">News</a></li><li><a class="nav" href="/pages/articles/article.php">Articles</a></li><li><a class="nav" href="/lectures">Lectures</a></li><li><a class="nav" href="/pages/programs/programs.php">Useful Stuff</a></li><!--<li><a class="nav" href="ebooks">E-books</a></li>--><li><a class="nav" href="http://hackbloc.org/?action=zine">HackThisZine</a></li><li><a class="nav" href=""></a></li></ul><h4 class="header">Get Involved</h4><ul class="navigation"><li><a class="nav" href="/donate"><span class="completed">Donate to HackThisSite!</span></a></li><li><a class="nav" href="http://www.cafepress.com/htsstore">Store</a></li><li><a class="nav" href="/submit/article">Submit Article</a></li><li><a class="nav" href="/pages/bugManagement/index.php">Submit Bug Report</a></li><li><a class="nav" href="/submit/lecture">Submit Lecture</a></li><li><a class="nav" href="/pages/programs/insert.php">Submit Useful Stuff</a></li><!--<li><a class="nav" href="/pages/showsource/loopdeloop.php">We Want You!</a></li>--><li><a class="nav" href=""></a></li></ul><h4 class="header">Communicate</h4><ul class="navigation"><li><a class="nav" href="/forums">Forums</a></li><li><a class="nav" href="http://www.hackthissite.org/forums/ucp.php?i=pm">Private Messages</a></li><li><a class="nav" href="http://www.irc.hackthissite.org/idlerpg">IRC IdleRPG</a></li><li><a class="nav" href="http://www.hackthissite.org/irc/stats.php">IRC Stats</a></li><li><a class="nav" href="http://qdb.hackthissite.org">IRC Quotes</a></li><li><a class="nav" href="/user/search">Search Users</a></li><li><a class="nav" href="/user/gallery">User Pictures</a></li><li><a class="nav" href="/user/online">Who is Online</a></li><li><a class="nav" href="/user/rankings/">Rankings</a></li><li><a class="nav" href="/pages/irc/irc.php">IRC Chat</a></li><li><a class="nav" href="/pages/irc/reference.php">IRC Command Reference</a></li><li><a class="nav" href=""></a></li></ul><h4 class="header">About HTS</h4><ul class="navigation"><li><a class="nav" href="/pages/info/guide/">About the Project</a></li><li><a class="nav" href="/pages/info/billofrights/">Bill of Rights</a></li><li><a class="nav" href="/pages/info/legal/">Legal Disclaimer</a></li><li><a class="nav" href="/pages/info/privacy/">Privacy Statements</a></li><li><a class="nav" href="/pages/info/staff/">Meet the Staff</a></li><li><a class="nav" href="/advertise">Advertise with HTS</a></li><li><a class="nav" href="/hof">Hall of Fame</a></li><li><a class="nav" href=""></a></li></ul><h4 class="header"></h4><ul class="navigation"><li><a class="nav" href=""></a></li></ul>
+<a href="http://www.spreadfirefox.com/?q=affiliates&amp;id=0&amp;t=218"><img border="0" alt="Firefox 3" title="Firefox 2" src="http://sfx-images.mozilla.org/affiliates/Buttons/firefox2/ff2o80x15.gif"/></a><br /><br />
+<a href="/"><img src="http://2.static.htscdn.org/images/hts_80x15.gif" width="80" height="15" border="0" alt="" /></a><br />
+<a class="nav" href="http://www.hackthissite.org/pages/info/linktous.php">Link to us!</a>
+<h4 class="header">Partners</h4><br />
+	<a class="nav" href="http://www.hackbloc.org/"><img src="http://2.static.htscdn.org/images/linkhb.gif" border="0" alt="Hackbloc" width="88" height="31" /></a><br />
+	<a class="nav" href="http://www.hellboundhackers.org/"><img src="http://2.static.htscdn.org/images/hbhlogo.jpg" width="88" height="31" border="0" alt="Hellbound Hackers" /></a><br />
+	<!--<a class="nav" href="http://www.hack4u.org"><img src="http://2.static.htscdn.org/images/hack4u.jpg" width="88" height="31" border="0" alt="Hack4u Challenges" /></a><br />-->
+	<!--<a class="nav" href="http://www.undergroundsystems.org"><img src="http://www.undergroundsystems.org/images/animuslinkbutton.gif" width="88" height="31" border="0" alt="UndergroundSystems" /></a><br />-->
+	<a class="nav" href="http://wigle.net/"><img src="http://2.static.htscdn.org/images/wigle-g-banner.gif" alt="WiGLE.net" width="88" height="31" border="0" /></a><br />
+	<a class="nav" href="http://www.acunetix.com/blog"><img src="http://2.static.htscdn.org/images/acunetixblog.gif" alt="Acunetix Security Blog" width="88" height="31" border="0" /></a><br />
+	<a class="nav" href="http://phoenix-network.org">phoenix free shells</a><br />
+	<a class="nav" href="http://hackergames.net/in.php?ID=199">hackergames.net</a><br />
+	<!--<a class="nav" href="http://www.pulltheplug.org">PullThePlug</a><br /><br />-->
+</div>
+          </td>
+          <td valign="top" class="sitebuffer">
+	<br />
+		<br /><center>
+                         <br /><center><b>Level 4</b></center><br /><br />This time Sam hardcoded the password into the script. However, the password is long and complex, and Sam is often forgetful. So he wrote a script that would email his password to him automatically in case he forgot. Here is the script:<br /><br /><center>
+                         <form action="/missions/basic/4/level4.php" method="post">
+                         <input type="hidden" name="to" value="imahacker72@yahoo.com.au" /><input type="submit" value="Send password to Sam" /></form></center><br /><br /><center><b>Password:</b><br />
+                         <form action="/missions/basic/4/index.php" method="post">
+                         <input type="password" name="password" /><br /><br />
+                         <input type="submit" value="submit" /></form>
+</td>
+        </tr>
+      </table></td>
+    </tr>
+ <tr>
+      <td class="sitebottomheader"><img src="http://2.static.htscdn.org/themes/Dark/images/hts_bottomheadern.jpg" alt="End Footer" width="780" height="60" /></td>
+    </tr>
+  </table>
+  <br />
+<div align="center" style="font-family:Verdana, Arial, Helvetica, sans-serif; font-size:10px; color:#CCCCCC">This site is the collective work of the 
+HackThisSite staff. Please don't reproduce in part or whole without permission.<br />
+Page Generated: Mon, 25 Apr 2011 21:37:37 +0000 Exec: 
+14<br />
+<sub>Page loaded  in 0.03147 seconds!</sub>
+<br />Current Code Revision: <a href="http://www.hackthissite.org/CHANGELOG">88-Stable</a><br />
+</div>
+</div>
+<div align="center">
+  <p>
+   <a href="http://validator.w3.org/check?uri=referer"><img src="http://2.static.htscdn.org/images/xhtml10.png" width="80" height="15" border="0" alt="" /></a>&nbsp;
+   <a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="http://2.static.htscdn.org/images/css.png" width="80" height="15" border="0" alt="" /></a> 
+   <a href="http://www.php.net/"> <img src="http://2.static.htscdn.org/images/phppow.gif" width="80" height="15" border="0" alt="" /></a>
+   <!--<a href="http://www.linux.com/"> <img src="../../images/linux2.gif" width="80" height="15" border="0" alt="" /></a>-->
+   <a href="http://www.freebsd.org/"> <img src="http://2.static.htscdn.org/images/freebsd.png" width="80" height="15" border="0" alt="" /></a>
+   <img src="http://2.static.htscdn.org/images/counter.php" height="14" border="0" alt="Page View Counter" />
+  </p>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2391176-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+    </body>
+</html>
+
+----------------------------------------------------------------------
+                   VERSION INFORMATION
+
+Autopsy Version: 2.24
+The Sleuth Kit Version: 4.2.0
+
+
