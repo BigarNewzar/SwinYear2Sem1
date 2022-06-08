@@ -1,0 +1,24 @@
+Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+
+
+"servers(localdb)\MSSQLLocalDB;database=TransactionDb;Trusted_connection:true"
+
+
+
+Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False
+
+[Required]
+        [MaxLength(3, ErrorMessage = "Card CVV must be 3 digits only")]
+        [RegularExpression(@"^\d{3}$",
+         ErrorMessage = "3 digits only.")]
+
+[Required]
+
+
+Add-Migration
+
+InitialMigration
+
+
+
+Update-Database

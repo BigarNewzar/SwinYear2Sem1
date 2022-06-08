@@ -1,0 +1,14 @@
+begin transaction
+INSERT INTO [dbo].[Transactions] 
+([TransactionId], [Firstname], [Lastname], [Email], [Address], [Suburb], [Postcode], [Phone], [Product], [Quantity], [Comment], [Credit_card_name], [Credit_card_number], [Credit_card_expiry_date], [Credit_card_CVV]) VALUES ('10005',	'TestData',	'TestData',	'smth@gmail.com',	'blah',	'blah',	'3123',	'0123456789',	'Stark',	'10',	'smth',	'blahblah',	'0123456789012345',	'0347',	'576')
+commit
+
+
+
+Severity	Code	Description	Project	File	Line	Suppression State
+Error	CS0234	The type or namespace name 'WebPages' does not exist in the namespace 'System.Web' (are you missing an assembly reference?)	Ragib_televisions2	C:\Users\User\Desktop\year2_semester_1_stuff\cos30041\9.3HD\Ragib_televisions2\Views\Home\Index.cshtml	1	Active
+
+
+    Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design -Version 3.1.4
+    Install-Package Microsoft.EntityFrameworkCore.Tools -Version 3.1.8
+    Install-Package Microsoft.EntityFrameworkCore.SqlServer -Version 3.1.8

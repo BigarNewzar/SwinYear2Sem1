@@ -1,0 +1,97 @@
+255+ 
+76
+25
+127
+120
+236
+48
+104
+20
+296
+19
+22
+
+
+= 1348
+
+
+115+
+29+
+162+
+23+
+29
+
+DOMContent flushed after 3724ms
+document loaded after 3711ms
+TFTI after 3867ms
+releasing set deferred timeout 3596ms
+
+{
+  "start": 135056398.01613945,
+  "end": 135059898.37333944,
+  "name": "ScriptExecution",
+  "category": 4,
+  "data": {
+    "innerWindowID": 79456894979,
+    "type": "Text",
+    "name": "<script> inline at line 200 of https://localhost:44348/Default"
+  }
+}
+
+ScriptExecution - <script> inline at line 200 of https://localhost:44348/Default  ----the successful insert part
+
+
+
+177ms,173ms, 160ms,178ms, 165ms,167ms,174ms,172ms,178ms,170ms
+
+
+63ms, 44ms,57ms,49ms,51ms,48ms,53ms,48ms,52ms,54ms
+
+
+
+1524,1492,1505, 1510,1499,1498,1514,1516,1490,1522
+
+
+415,428,417,420,414,431,427,428,416,425
+
+
+
+
+
+77ms, 55ms,58ms, 49ms,58ms,58ms,59ms,57ms,58ms,62ms
+
+63ms, 35ms, 36ms,27ms,31ms,32ms,27ms,27ms,29ms,30ms
+
+
+
+[#] A. A. Author. "Page Title." Website Title. URL (Accessed Month Day, Year).
+
+
+References used
+
+
+
+
+
+[1] Microsoft Visual Studio. "SQL Server Data Tools for Visual Studio". Microsoft Visual Studio. https://visualstudio.microsoft.com/vs/features/ssdt/ (Accessed 05/30/2022 ).
+
+
+[2] Microsoft Visual Studio. "Mordern Web Tooling". Microsoft Visual Studio. https://visualstudio.microsoft.com/vs/features/web/ (Accessed 05/30/2022 ).
+
+[3] Microsoft Documentation. ".NET Documentation". Microsoft Visual Studio. https://docs.microsoft.com/en-us/dotnet/ (Accessed 05/30/2022 ).
+
+ 
+[4] Firefox Source Docs. "Network Monitor".  Firefox Source Docs. https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/ (Accessed 05/30/2022 ).
+
+
+ 
+[5] Human Benchmark. "Reaction Time Test".  Human Benchmark. https://humanbenchmark.com/tests/reactiontime (Accessed 05/30/2022 ).
+
+[6] Quora. "How is .net better than Java".  Quora.  https://www.quora.com/How-is-net-better-than-Java (Accessed 05/30/2022 ).
+
+[7] L. White. "Reasons why dot net is better than Java".  Codersera.  https://codersera.com/blog/reasons-why-dot-net-is-better-than-java/ (Accessed 05/30/2022 ).
+
+
+[8] M. Kaczorowski . ".NET vs Java: Which Technology Is Better For Software Development?".  Ideamotive.  https://www.ideamotive.co/blog/dotnet-vs-java-which-technology-is-better-for-software-development (Accessed 05/30/2022 ).
+
+
