@@ -1,0 +1,506 @@
+the configs i wrote
+Subnet Name	Needed Size	Allocated Size	Address	Mask	Dec Mask	Assignable Range	Broadcast
+Vlan 724 xxx	800	1022	27.32.0.0	/22	255.255.252.0		27.32.0.1 - 27.32.3.254		27.32.3.255
+Vlan 242 yyy	200	254	27.32.4.0	/24	255.255.255.0		27.32.4.1 - 27.32.4.254		27.32.4.255
+Vlan 516	120	126	27.32.5.0	/25	255.255.255.128		27.32.5.1 - 27.32.5.126		27.32.5.127
+Daspur  	20	30	27.32.5.128	/27	255.255.255.224		27.32.5.129 - 27.32.5.158	27.32.5.159
+Vlan 1		6	6	27.32.5.160	/29	255.255.255.248		27.32.5.161 - 27.32.5.166		27.32.5.167
+Internal serial	2	2	27.32.5.168	/30	255.255.255.252		27.32.5.169 - 27.32.5.170	27.32.5.171
+
+
+
+
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+loggin sync
+end
+
+enable
+conf t
+banner motd $********
+Welcome to NagiriS3
+103172423 Rezwan TUES 2:30PM
+*****$
+end 
+
+en
+conf t
+hostname NagiriS3
+end
+
+
+enable
+conf t
+banner motd $********
+Welcome to NagiriR1
+103172423 Rezwan TUES 2:30PM
+*****$
+end 
+
+en
+conf t
+hostname NagiriR1
+end
+
+
+enable
+conf t
+banner motd $********
+Welcome to DaspurR2
+103172423 Rezwan TUES 2:30PM
+*****$
+end 
+
+en
+conf t
+hostname DaspurR2
+end
+
+enable
+conf t
+banner motd $********
+Welcome to ISPR3
+103172423 Rezwan TUES 2:30PM
+*****$
+end 
+
+en
+conf t
+hostname ISPR3
+end
+
+en
+conf t
+vlan 724
+name Dogs
+end
+
+en
+conf t
+vlan 242
+name Cats
+end
+
+en
+conf t
+vlan 516
+name Birds
+end
+
+en
+conf t
+int G0/0/1
+switchport mode trunk
+no shut
+end
+
+en
+conf t
+int G1/0/11
+switchport mode trunk
+no shut
+end
+
+
+en
+conf t
+int range G1/0/13-14
+switchport mode access
+switchport access vlan 724
+end
+
+en
+conf t
+int range G1/0/24
+switchport mode access
+switchport access vlan 242
+end
+
+en
+conf t
+ip default-gateway 27.32.5.161
+end
+
+en
+conf t
+int vlan 1
+description Management Vlan
+ip address 27.32.5.162 255.255.255.248
+no shut
+end
+
+en
+conf t
+enable password cisco
+line vty 0 15
+password cisco
+login
+end
+
+en
+conf t
+int range G1/0/13-14
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation protect
+switchport port-security mac-address sticky
+end
+
+en
+conf t
+no mac address-table static 00-0C-29-2B-95-F8 vlan 242 interface G1/0/24
+end
+
+en
+conf t
+int range G1/0/24
+switchport port-security
+switchport port-security mac-address static
+mac address-table static 00-0C-29-2B-95-F8 vlan 242 interface G1/0/24
+end
+
+en
+conf t
+int G0/0/1
+no shut
+end
+
+en 
+conf t
+int G0/0/1.724
+description Connection to VLan 724
+encapsulation dot1Q 724
+ip address 27.32.0.1 255.255.252.0
+end
+
+en 
+conf t
+int G0/0/1.242
+description Connection to VLan 242
+encapsulation dot1Q 242
+ip address 27.32.4.1 255.255.255.0
+end
+ 
+en 
+conf t
+no int G0/0/1.516
+no description Connection to VLan 516
+no encapsulation dot1Q 516
+no ip address 27.32.5.1 255.255.255.224
+end
+
+
+
+
+en 
+conf t
+int G0/0/1.1
+description Connection to VLan 1
+encapsulation dot1Q 1
+ip address 27.32.5.161 255.255.255.248
+end
+  
+
+en 
+conf t
+int S0/1/0
+description Connection to R2
+no shut
+ip address 27.32.5.169 255.255.255.252
+end
+
+r2part for serial and loop
+
+en 
+conf t
+int S0/1/0
+description Connection to R1
+no shut
+ip address 27.32.5.170 255.255.255.252
+end
+
+en 
+conf t
+int Lo0
+description Connection to Daspur server LAN Loopback0
+no shut
+ip address 27.32.5.129 255.255.255.224
+end
+
+en 
+conf t
+int S0/1/1
+description Connection to ISP
+no shut
+ip address 210.11.2.1 255.255.255.252
+end
+
+
+On ISP
+
+
+en 
+conf t
+int S0/1/1
+description Connection to R3
+no shut
+ip address 210.11.2.2 255.255.255.252
+end
+
+
+en 
+conf t
+int Lo0
+description Connection to INTERNET
+no shut
+ip address 154.2.0.1 255.255.0.0
+end
+
+en 
+conf t
+int Lo1
+description Connection to INTERNET
+no shut
+ip address 18.0.0.1 255.0.0.0
+end
+   
+en 
+conf t
+int Lo2
+description Connection to INTERNET
+no shut
+ip address 162.55.0.1 255.255.0.0
+end
+
+en 
+conf t
+int Lo3
+description Connection to INTERNET
+no shut
+ip address 201.12.80.1 255.255.255.0
+end
+
+
+
+
+
+en
+conf t
+router ospf 10
+network 27.32.5.160 0.0.0.7 area 0
+passive-interface G0/0/1.1
+network 27.32.4.0 0.0.0.255 area 0
+passive-interface G0/0/1.242
+network 27.32.0.0 0.0.0.255 area 0
+passive-interface G0/0/1.724
+network 27.32.5.168 0.0.0.3 area 0
+end
+
+
+en
+conf t
+router ospf 10
+network 27.32.5.128 0.0.0.31 area 0
+passive-interface Lo0
+network 27.32.5.168 0.0.0.3 area 0
+
+default-information originate
+end
+
+
+en
+conf t
+ip route 0.0.0.0 0.0.0.0 S0/1/1
+end
+
+en
+conf t
+
+ip nat pool POOLVLAN1 135.12.64.0 135.12.64.41 netmask 255.255.255.128
+ip nat pool POOLVLAN724 135.12.64.42 135.12.64.83 netmask 255.255.255.128
+ip nat pool POOLVLAN242 135.12.64.84 135.12.64.125 netmask 255.255.255.128
+
+ip access-list extended ACLVLAN1
+permit ip 27.32.5.160 0.0.0.7 any
+ip access-list extended ACLVLAN724
+permit ip 27.32.5.160 0.0.0.7 any
+ip access-list extended ACLVLAN242
+permit ip 27.32.5.160 0.0.0.7 any
+
+
+ip nat inside source list ACLVLAN1 pool POOLVLAN1 overload
+ip nat inside source list ACLVLAN724 pool POOLVLAN724 overload
+ip nat inside source list ACLVLAN242 pool POOLVLAN242 overload
+
+int S0/1/0
+ip nat in
+
+
+int Lo0
+ip nat in
+
+int S0/1/1
+ip nat out
+
+
+en
+conf t
+ip route 135.12.64.0 255.255.255.128 S0/1/1
+end
+
+dhcp parts:
+
+en
+conf t
+int S0/1/0
+ip helper-address 27.32.5.169 
+end
+
+en
+conf t
+service dhcp
+ip dhcp excluded-address 27.32.0.1 27.32.0.4
+ip dhcp excluded-address 27.32.4.1 27.32.4.4
+ip dhcp pool poolVLAN724
+network 27.32.0.0 255.255.252.0
+default-router 27.32.0.1
+
+ip dhcp pool poolVLAN242
+network 27.32.4.0 255.255.255.0
+default-router 27.32.4.1
+
+
+                  service dhcp  (turns on DHCP service)
+
+                  ip dhcp pool poolVLANXXX
+                      network subnetwork  subnetwork mask 
+                      default-router  ip address of G0/0/1.XXX 
+
+                 ip dhcp pool poolVLANYYY
+                    network  subnetwork   subnetwork mask 
+                    default-router  ip address of G0/0/1.YYY 
+
+Vlan 724 xxx	800	1022	27.32.0.0	/22	255.255.252.0		27.32.0.1 - 27.32.3.254		27.32.3.255
+
+
+On nagiri
+
+no ip  access-list  standard  ACLTELNET
+ip  access-list  standard  ACLTELNET
+! Permit VLANXXX Telnet Access to Nagri
+permit   27.32.0.0  0.0.3.255
+deny any 
+
+! On Daspur
+
+no ip  access-list  standard  ACLTELNET
+ip  access-list  standard  ACLTELNET
+! Deny VLANXXX Telnet Access to Daspur
+deny    27.32.0.0  0.0.3.255
+permit any 
+
+
+
+Interface Placement - line vty 0 4, on Nagri and Daspur Routers
+
+line vty 0 4
+  password cisco
+  login
+  access-class ACLTELNET in 
+no enable password
+
+on gateway router
+                 interface S0/1/1
+                    
+                    encapsulation ppp
+                    no shutdown
+       
+Configure on Router ISP
+     
+                 interface  S0/1/1
+                    
+                    encapsulation ppp
+                    no shutdown
+ping to test this
+
+
+
+
+
+Configure on Router Daspur
+                
+                  username ISPR3 password cisco    (username  and  password  are  case  sensitive)
+     
+                 interface S0/1/1
+                   ppp authentication chap
+       
+Configure on Router ISP
+
+                username DaspurR2 password cisco
+     
+                 interface S0/1/1
+                   ppp authentication chap
+
+     The Password Problem  
+
+ You need to ensure the password does not have spaces at the front or the end else the authentication will fail
+
+      PPP Trouble Shooting Commands
+
+debug ppp authentication
+
+conf t
+int S0/1/1 
+shut
+end
+
+
+conf t
+int S0/1/1 
+no shut
+end
+
+154.3.0.1 255.255.0.0
+
+27.32.4.0 0.0.0.255
+no ip      access-list extended   ACLVLANXXX
+ip      access-list extended   ACLVLAN724
+ 
+! Only permit HTTP access to ISP Packet Tracer Server0 or  ISP Loopback 0 if in Lab Router
+
+permit  tcp   27.32.0.0  0.0.3.255   host  154.3.0.1  eq  www
+
+! Deny ALL other access to ISP Packet Tracer Server0 or  ISP Loopback 0 if in Lab Router
+deny     ip     27.32.0.0  0.0.3.255   host   154.3.0.1
+
+! Permit ping reply (echo-reply) to a destination – PCs in VLAN YYY subnet
+permit  icmp   27.32.0.0  0.0.3.255   27.32.4.0 0.0.0.255 echo-reply
+
+! Deny PING request to a destination - PCs in VLAN YYY  subnet
+ deny icmp    27.32.0.0  0.0.3.255   27.32.4.0 0.0.0.255
+! Permit access to The Internet
+permit  ip      any   any  
+
+ACL Placement  -  On   Sub Interface  G0/0/1.XXX  on Nagri Router
+interface G0/0/1.724
+ip access-group  ACLVLAN724  in 
+
+
+
+
+
+Vlan 242 yyy	200	254	27.32.4.0	/24	255.255.255.0		27.32.4.1 - 27.32.4.254		27.32.4.255
+Daspur  	20	30	27.32.5.128	/27	255.255.255.224		27.32.5.129 - 27.32.5.158	27.32.5.159
+
+27.32.4.0	/24	255.255.255.0	
+
+ip      access-list extended   ACLVLAN242
+deny     ip     27.32.4.0  0.0.0.255   27.32.5.128   0.0.0.31
+permit  ip      any   any  
+
+interface G0/0/1.242
+ip access-group  ACLVLAN242  in 
+

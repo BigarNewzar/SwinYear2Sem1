@@ -1,0 +1,21 @@
+Korba Router:
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+banner motd $*********
+Welcome to KorbaR1
+103172423, Ragib, TUES 2:30PM 
+*********$
+end
+
+enable
+hostname KorbaR1
+end
+

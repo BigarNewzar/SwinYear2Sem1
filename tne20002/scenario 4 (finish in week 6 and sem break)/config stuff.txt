@@ -1,0 +1,658 @@
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname LaturS3
+end
+
+enable
+conf t
+banner motd $*********
+Welcome to LaturS3
+103172423, Ragib, Tuesday 2:20PM
+*********$
+end
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname LaturR1
+end
+
+enable
+conf t
+banner motd $*********
+Welcome to LaturR1
+103172423, Ragib, Tuesday 2:20PM
+*********$
+end
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname UdgirR2
+end
+
+enable
+conf t
+banner motd $*********
+Welcome to UdgirR2
+103172423, Ragib, Tuesday 2:20PM
+*********$
+end
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname BarshiR3
+end
+
+enable
+conf t
+banner motd $*********
+Welcome to BarshiR3
+103172423, Ragib, Tuesday 2:20PM
+*********$
+end
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname ISP_R4
+end
+
+enable
+conf t
+banner motd $*********
+Welcome to ISP_R4
+103172423, Ragib, Tuesday 2:20PM
+*********$
+end
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname UdgirS2
+end
+
+enable
+conf t
+banner motd $*********
+Welcome to UdgirS2
+103172423, Ragib, Tuesday 2:20PM
+*********$
+end
+
+
+enable
+conf t
+vlan 423
+name Grape
+end
+
+enable
+conf t
+int range G1/0/13-14
+switchport mode access
+switchport access vlan 423
+end
+
+enable
+conf t
+int range G1/0/13-14
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation protect
+switchport port-security mac-address sticky
+end
+
+
+
+enable
+conf t
+vlan 172
+name White
+end
+
+enable
+conf t
+vlan 154
+name Grey
+end
+
+enable
+conf t
+int range fa0/24
+switchport mode access
+switchport access vlan 172
+end
+
+enable
+conf t
+int range fa0/24
+switchport port-security
+switchport port-security maximum 1
+switchport port-security violation shutdown
+switchport port-security mac-address sticky
+end
+
+sh vlan brief
+
+sh port-security
+
+
+enable
+conf t
+int vlan 1
+description Management for swtich3
+ip address 145.43.3.162 255.255.255.224 
+no shutdown
+end
+
+enable
+conf t
+ip default-gateway 145.43.3.161
+end
+
+
+
+255.255.255.224 	
+145.43.3.161 - 145.43.3.190
+
+sh vlan b
+sh ip int b
+
+enable
+conf t
+int vlan 1
+description Management for swtich2
+ip address 145.43.3.194 255.255.255.240
+no shutdown
+end
+
+enable
+conf t
+ip default-gateway 145.43.3.193
+end
+
+255.255.255.240 	
+145.43.3.193 - 145.43.3.206 
+
+sh vlan b
+sh ip int b
+
+enable 
+conf t
+int G1/0/11
+switchport trunk encapsulation dot1q
+switchport mode trunk
+end
+
+
+enable 
+conf t
+int G0/1
+switchport mode trunk
+end
+
+enable
+conf t
+enable password cisco
+line vty 0 15
+password cisco
+login
+end
+exit
+
+
+
+
+enable
+conf t
+int G0/0/1
+description interface vlan main
+no shutdown
+end
+
+enable
+conf t
+int S0/1/0
+description Connection from R1 to R2 (serial1)
+ip address 145.43.3.209  255.255.255.252 
+no shutdown
+end
+
+255.255.255.252 	
+145.43.3.209 - 145.43.3.210 
+
+enable
+conf t
+int G0/0/1
+description interface vlan main
+no shutdown
+end
+
+enable
+conf t
+int S0/1/0
+description Connection from R2 to R1 (serial1)
+ip address 145.43.3.210  255.255.255.252 
+no shutdown
+end
+
+
+enable
+conf t
+int S0/1/1
+description Connection from R2 to R3 (serial3)
+ip address 145.43.3.217 255.255.255.252
+no shutdown 
+end
+
+255.255.255.252 	
+145.43.3.217 - 145.43.3.218 
+
+enable
+conf t
+int S0/1/1
+description Connection from R3 to R2 (serial3)
+ip address 145.43.3.218 255.255.255.252 
+no shutdown
+end
+
+enable
+conf t
+int S0/1/0
+description Connection from R3 to R1 (serial2)
+ip address 145.43.3.213 255.255.255.252 
+no shutdown
+end
+
+255.255.255.252 	
+145.43.3.213 - 145.43.3.214 
+
+enable
+conf t
+int S0/1/1
+description Connection from R1 to R3 (serial2)
+ip address 145.43.3.214 255.255.255.252 
+no shutdown
+end
+
+enable
+conf t
+int Lo0
+description Connection from R3 to Databse server loopback
+ip address 145.43.3.129 255.255.255.224
+no shutdown
+end
+
+255.255.255.224 	
+145.43.3.129 - 145.43.3.158 	
+
+enable
+conf t
+int S0/2/0
+description Connection from R3 to R4 (ISP link)
+ip address 201.11.52.1 255.255.255.252 
+no shutdown
+end
+
+201.11.52.0
+255.255.255.252 
+
+enable
+conf t
+int S0/1/0
+description Connection from R4 to R3 (ISP link)
+ip address 201.11.52.2 255.255.255.252 
+no shutdown
+end
+
+enable
+conf t
+int S0/2/0
+no description
+no ip address
+shutdown
+end
+
+enable
+conf t
+int G0/0/0
+description Connection from R4 to Server0
+ip address 182.18.0.1 255.255.0.0
+no shutdown 
+end
+
+182.18.0.0
+255.255.0.0
+
+enable
+conf t
+int G0/0/1
+description Connection from R4 to Server1
+ip address 121.0.0.1 255.0.0.0 
+no shutdown
+end
+
+121.0.0.0
+255.0.0.0 
+
+enable
+conf t
+int lo2
+description Connection from R4 to loopback2
+ip address 141.66.0.1 255.255.0.0 
+no shutdown
+end
+
+141.66.0.0
+255.255.0.0
+
+enable
+conf t
+int lo3
+description Connection from R4 to loopback3
+ip address 217.2.45.1 255.255.255.0 
+no shutdown
+end
+
+217.2.45.0
+255.255.255.0
+
+
+
+
+
+enable
+conf t
+int G0/0/1.1
+description Connection to Vlan 1
+encapsulation dot1Q 1
+ip address 145.43.3.161 255.255.255.224
+end
+
+255.255.255.224	
+145.43.3.161 - 145.43.3.190 	
+
+enable
+conf t
+int G0/0/1.423
+description Connection to Vlan 423
+encapsulation dot1Q 423
+ip address 145.43.0.1 255.255.254.0 
+end
+
+255.255.254.0 	
+145.43.0.1 - 145.43.1.254 
+
+
+
+enable
+conf t
+int G0/0/1.1
+description Connection to Vlan 1
+encapsulation dot1Q 1
+ip address 145.43.3.193 255.255.255.240
+end
+
+255.255.255.240 	
+145.43.3.193 - 145.43.3.206 	
+
+enable
+conf t
+int G0/0/1.172
+description Connection to Vlan 172
+encapsulation dot1Q 172
+ip address 145.43.2.1 255.255.255.0 
+end
+
+255.255.255.0 	
+145.43.2.1 - 145.43.2.254 
+
+
+
+on latur
+
+router OSPF 1
+network 145.43.3.161  0.0.0.31  area 0 
+network 145.43.0.1  0.0.1.255  area 0 
+network 145.43.3.209  0.0.0.3  area 0 
+network 145.43.3.214  0.0.0.3  area 0 
+
+passive-interface G0/0/1.1 
+passive-interface G0/0/1.423
+
+on udgir
+enable
+conf t
+router OSPF 2
+network 145.43.3.193 0.0.0.15  area 0 
+network 145.43.2.1  0.0.0.255  area 0 
+network 145.43.3.210  0.0.0.3  area 0 
+network 145.43.3.217  0.0.0.3  area 0 
+
+passive-interface G0/0/1.1 
+passive-interface G0/0/1.172
+end
+
+
+on barshi
+
+
+enable
+conf t
+router OSPF 3
+network 145.43.3.219  0.0.0.31  area 0 
+network 145.43.3.213  0.0.0.3  area 0 
+network 145.43.3.218  0.0.0.3  area 0 
+ip route 0.0.0.0  0.0.0.0   S0/1/0 
+end
+
+enable
+conf t
+router OSPF 3  
+default-information originate  
+passive-interface loopback0  
+end
+
+
+
+on isp 
+ip route  145.43.0.0  255.255.192.0  Serial0/2/0
+
+sh ip ospf neighbor
+
+sh ip route
+
+ping 145.43.2.3
+tracert 182.18.0.2
+
+
+tracert 182.18.0.2
+
+!
+ip classless
+ip route 131.43.0.0 255.255.0.0 Serial0/1/0 
+!
+
+ip route 145.43.0.0 255.255.192.0 Serial0/1/0 
+
+
+Barshi:
+
+enable
+conf t
+int S0/1/1
+bandwidth 512
+end
+
+enable
+conf t
+int S0/1/0
+bandwidth 128
+end
+
+Latur:
+enable
+conf t
+int S0/1/1
+bandwidth 128
+end
+
+enable
+conf t
+int S0/1/0
+bandwidth 512
+end
+
+
+Udgir:
+enable
+conf t
+int S0/1/0
+bandwidth 512
+end
+
+enable
+conf t
+int S0/1/1
+bandwidth 512
+end
+
+enable
+conf t
+line vty 0 4
+password cisco
+login
+access-class ACLTELNET in
+end
+exit
+
+enable
+conf t
+no ip  access-list standard ACLTELNET
+ip  access-list standard  ACLTELNET
+permit 145.43.0.0  0.0.1.255 
+deny any
+end
+
+enable
+conf t
+line vty 0 4
+password cisco
+login
+access-class ACLTELNET in
+end
+exit
+
+enable
+conf t
+no ip  access-list extended  ACLVLAN423
+ip  access-list extended  ACLVLAN423
+permit tcp 145.43.0.0  0.0.1.255 host 182.18.0.2 eq 80
+deny ip 145.43.0.0  0.0.1.255 host 182.18.0.2 
+permit  ip any any
+end
+
+conf t
+int G0/0/1.423
+ip access-group ACLVLAN423 in
+end
+
+
+
+enable
+conf t
+line vty 0 4
+password cisco
+login
+access-class ACLTELNET in
+end
+exit
+
+
+enable
+conf t
+no ip  access-list standard ACLTELNET
+ip  access-list standard  ACLTELNET
+deny 145.43.0.0  0.0.1.255 
+permit any
+end
+
+enable
+conf t
+line vty 0 4
+password cisco
+login
+access-class ACLTELNET in
+end
+exit
+
+
+enable
+conf t
+no ip  access-list extended  ACLVLAN172
+ip  access-list extended  ACLVLAN172
+deny icmp  145.43.2.0   0.0.0.255  145.43.0.0  0.0.1.255 
+permit  ip any any
+end
+
+
+conf t
+int G0/0/1.172
+ip access-group ACLVLAN172 in
+end
+
+255.255.254.0 	
+145.43.0.1 - 145.43.1.254 
+
+
+255.255.255.0 	
+145.43.2.1 - 145.43.2.254 	
+
+
+ping 145.43.0.3
+
+
+en
+conf t
+no ip  access-list extended  ACLVLAN172
+no ip  access-list standard ACLTELNET
+end

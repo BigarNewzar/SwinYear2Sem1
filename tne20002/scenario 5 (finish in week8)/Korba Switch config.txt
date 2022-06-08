@@ -1,0 +1,131 @@
+Korba Switch:
+
+
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+banner motd $*********
+Welcome to KorbaS3
+103172423, Ragib, TUES 2:30PM 
+*********$
+end
+
+enable
+hostname KorbaS3
+end
+
+
+enable
+conf t
+vlan 172
+name Green
+end
+
+enable
+conf t
+vlan 423
+name Blue
+end
+
+enable
+conf t
+vlan 195
+name Grey
+end
+
+
+sh vlan brief
+
+enable
+conf t
+int range G1/0/13-14
+switchport mode access
+switchport access vlan 172
+end
+
+enable
+conf t
+int range G1/0/13-14
+switchport port-security
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation protect
+end
+
+
+enable
+conf t
+int range G1/0/24
+switchport mode access
+switchport access vlan 423
+end
+
+
+//if on lab do this:
+
+enable
+conf t
+int range G1/0/24
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+end
+////////////////////////////////////
+
+//if on packert tracer do this:
+enable
+conf t
+int range G1/0/24
+switchport port-security
+mac address-table static  <<MAC address of the PC>> vlan <<Vlan ID>> interface <<interface ID>>
+end
+////////////////////////////
+
+enable
+conf t
+int range G1/0/11
+switchport mode trunk
+end
+
+
+enable
+conf t
+vlan 1
+name Management
+end
+enable
+conf t
+int vlan 1
+description For Management Purposes
+ip address 43.64.9.66 255.255.255.240
+end
+
+enable
+conf t
+ip default-gateway 43.64.9.65
+end
+
+enable
+conf t
+enable password cisco
+line vty 0 15
+password cisco
+login
+end
+exit
+
+sh vlan b
+
+sh port-security
+
+
+
+

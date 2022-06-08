@@ -1,0 +1,35 @@
+Corporate 158.20.0.0/16
+ISP: 201.24.41.0/30
+XXX  French 210 Vlan210 :600   158.20.0.0/22 255.255.252.0
+YYY English 057 Vlan57   : 100  158.20.4.0/25 255.255.255.128
+VLan 256 Hindi : 50             158.20.4.128/26 255.255.255.192
+Vlan 1 : 18                     158.20.5.0/27 255.255.255.224
+Internal Serial: 2              158.20.5.32/30 255.255.255.252
+Sedam Database Server Lan : 40  158.20.4.192/26 255.255.255.192
+
+TandorR1 & TandorS1
+
+TandorS1
+Create Vlan 210 French, 57 English, 256 Hindi
+access VLAN 210 G1/0/13, G1/0/14; Vlan 57 G1/0/24
+Int vlan1 & default-gateway
+port security
+
+TandorR1
+InterVlan (Vlan 210, 57, 256, 1)
+RIP V2
+Passive-int
+
+Sedam
+RIP V2, do not advertise  the  external network address
+Passive-int
+Default route to ISP
+Advertise default route to Tandur
+
+ISP
+Static route
+Loopbacks
+
+Wireless
+Int port - vlan1 ip address
+SSID (student ID)

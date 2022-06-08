@@ -1,0 +1,146 @@
+
+Current configuration : 2502 bytes
+!
+version 15.4
+service timestamps log datetime msec
+service timestamps debug datetime msec
+no service password-encryption
+!
+hostname DaspurR2
+!
+!
+!
+!
+ip dhcp excluded-address 27.32.0.1 27.32.0.4
+ip dhcp excluded-address 27.32.4.1 27.32.4.4
+!
+ip dhcp pool poolVLAN724
+ network 27.32.0.0 255.255.252.0
+ default-router 27.32.0.1
+ip dhcp pool poolVLAN242
+ network 27.32.4.0 255.255.255.0
+ default-router 27.32.4.1
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+username ISP password 0 cisco
+username ISPR3 password 0 cisco
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ description Connection to Daspur server LAN Loopback0
+ ip address 27.32.5.129 255.255.255.224
+ ip nat inside
+!
+interface GigabitEthernet0/0/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial0/1/0
+ description Connection to R1
+ ip address 27.32.5.170 255.255.255.252
+ ip nat inside
+ clock rate 2000000
+!
+interface Serial0/1/1
+ description Connection to ISP
+ ip address 210.11.2.1 255.255.255.252
+ encapsulation ppp
+ ppp authentication chap
+ ip nat outside
+!
+interface Serial0/2/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/2/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ log-adjacency-changes
+ passive-interface Loopback0
+ network 27.32.5.128 0.0.0.31 area 0
+ network 27.32.5.168 0.0.0.3 area 0
+ default-information originate
+!
+ip nat pool POOLVLAN1 135.12.64.0 135.12.64.41 netmask 255.255.255.128
+ip nat pool POOLVLAN242 135.12.64.84 135.12.64.125 netmask 255.255.255.128
+ip nat pool POOLVLAN724 135.12.64.42 135.12.64.83 netmask 255.255.255.128
+ip nat inside source list ACLVLAN1 pool POOLVLAN1 overload
+ip nat inside source list ACLVLAN242 pool POOLVLAN242 overload
+ip nat inside source list ACLVLAN724 pool POOLVLAN724 overload
+ip classless
+ip route 0.0.0.0 0.0.0.0 Serial0/1/1 
+!
+ip flow-export version 9
+!
+!
+ip access-list extended ACLVLAN1
+ permit ip 27.32.5.160 0.0.0.7 any
+ip access-list extended ACLVLAN724
+ permit ip 27.32.5.160 0.0.0.7 any
+ip access-list extended ACLVLAN242
+ permit ip 27.32.5.160 0.0.0.7 any
+ip access-list standard ACLTELNET
+ deny 27.32.0.0 0.0.3.255
+ permit any
+!
+banner motd ^C********
+Welcome to DaspurR2
+103172423 Rezwan TUES 2:30PM
+*****^C
+!
+!
+!
+!
+!
+line con 0
+ logging synchronous
+ login
+!
+line aux 0
+!
+line vty 0 4
+ access-class ACLTELNET in
+ password cisco
+ login
+!
+!
+!
+end

@@ -1,0 +1,570 @@
+enable
+conf t
+line console 0
+logging synchronous
+exec-timeout 0 0
+no ip domain-lookup
+end
+
+..................................
+enable
+conf t
+banner motd &
+Welcome to KodadSwitch
+103172423, Rezwan,Tuesday 2:30pm to 5:30pm
+&
+end
+
+enable
+conf t
+hostname KodadSwitch
+end
+
+
+enable
+conf t
+banner motd &
+Welcome to PargiSwitch
+103172423, Rezwan,Tuesday 2:30pm to 5:30pm
+&
+end
+
+enable
+conf t
+hostname PargiSwitch
+end
+
+
+enable
+conf t
+banner motd &
+Welcome to KodadRouter
+103172423, Rezwan,Tuesday 2:30pm to 5:30pm
+&
+end
+
+enable
+conf t
+hostname KodadRouter
+end
+
+
+enable
+conf t
+banner motd &
+Welcome to PargiRouter
+103172423, Rezwan,Tuesday 2:30pm to 5:30pm
+&
+end
+
+enable
+conf t
+hostname PargiRouter
+end
+
+
+enable
+conf t
+banner motd &
+Welcome to BidarRouter
+103172423, Rezwan,Tuesday 2:30pm to 5:30pm
+&
+end
+
+enable
+conf t
+hostname BidarRouter
+end
+
+
+enable
+conf t
+banner motd &
+Welcome to ISPRouter
+103172423, Rezwan,Tuesday 2:30pm to 5:30pm
+&
+end
+
+enable
+conf t
+hostname ISPRouter
+end
+
+continue this part afrter fixing the switch stuff
+
+enable
+conf t 
+vlan 423
+name Eggs
+end
+
+enable
+conf t 
+int range g1/0/13-14
+switchport mode access
+switchport access vlan 423
+end
+
+enable 
+conf t
+int range g1/0/13-14
+switchport port-security
+switchport port-security violation shutdown
+switchport port-security mac-address sticky
+switchport port-security max 4
+end
+.............
+
+enable
+conf t 
+vlan 172
+name Milk
+end
+
+
+enable
+conf t 
+vlan 130
+name Bread
+end
+
+enable
+conf t 
+int range fa0/24
+switchport mode access
+switchport access vlan 172
+end
+
+enable 
+conf t
+int range fa0/24
+switchport port-security
+switchport port-security violation protect
+switchport port-security mac-address static
+switchport port-security mac-address 00-0C-29-EF-C4-80
+switchport port-security max 1
+end
+
+
+
+enable
+conf t 
+int range G0/1
+switchport mode trunk
+end
+
+
+enable
+conf t 
+int range G1/0/11
+switchport mode trunk
+end
+
+enable
+conf t 
+vlan 1
+name management
+end
+
+enable
+conf t 
+int vlan 1
+description management vlan
+ip address 148.42.8.226 255.255.255.224
+end
+
+enable
+conf t
+ip default-gateway 148.42.8.225
+end
+
+
+sh vlan b
+sh ip int b 
+
+
+enable
+conf t 
+vlan 1
+name management
+end
+
+enable
+conf t 
+int vlan 1
+description management vlan
+ip address 148.42.9.2 255.255.255.224
+end
+
+enable
+conf t
+ip default-gateway 148.42.9.1
+end
+
+
+sh vlan b
+sh ip int b 
+
+
+enable
+conf t
+line vty 0 15
+password cisco
+login
+end
+
+
+
+r1:
+
+
+enable
+conf t
+int s0/1/0
+description serial to R2
+ip address 148.42.9.37 255.255.255.252
+no shutdown
+end
+
+
+enable
+conf t
+int s0/1/1
+description serial to R3
+ip address 148.42.9.33 255.255.255.252
+no shutdown
+end
+
+
+r2:
+
+
+enable
+conf t
+int s0/1/0
+description serial to R1
+ip address 148.42.9.38 255.255.255.252
+no shutdown
+end
+
+
+enable
+conf t
+int s0/1/1
+description serial to R3
+ip address 148.42.9.41 255.255.255.252
+no shutdown
+end
+
+s3:
+
+enable
+conf t
+int s0/1/0
+description serial to R1
+ip address 148.42.9.34 255.255.255.252
+no shutdown
+end
+
+
+enable
+conf t
+int s0/1/1
+description serial to R2
+ip address 148.42.9.42 255.255.255.252
+no shutdown
+end
+
+
+enable
+conf t
+int lo0
+description bidar database server
+ip address 148.42.8.193 255.255.255.224
+no shutdown
+end
+
+
+enable
+conf t
+int s0/2/0
+description connection to R4
+ip address 204.3.52.1 255.255.255.252
+no shutdown
+end
+
+r4:
+
+
+enable
+conf t
+int s0/1/0
+description connection to R3
+ip address 204.3.52.2 255.255.255.252
+no shutdown
+end
+
+enable
+conf t
+int lo0
+description loopback0
+ip address 138.80.0.1 255.255.0.0
+no shutdown
+end
+
+
+enable
+conf t
+int lo1
+description loopback1
+ip address 44.0.0.1 255.0.0.0
+no shutdown
+end
+
+
+enable
+conf t
+int lo2
+description loopback2
+ip address 159.23.0.1 255.255.0.0
+no shutdown
+end
+
+
+enable
+conf t
+int lo3
+description loopback3
+ip address 216.12.5.1 255.255.255.0
+no shutdown
+end
+
+
+enable
+conf t
+int lo0
+description loopback0
+ip address 138.80.0.1 255.255.0.0
+no shutdown
+end
+
+
+enable
+conf t
+int lo1
+description loopback1
+ip address 44.0.0.1 255.0.0.0
+no shutdown
+end
+
+
+enable
+conf t
+int lo2
+description loopback2
+ip address 159.23.0.1 255.255.0.0
+no shutdown
+end
+
+r1:
+
+enable
+conf t
+int g0/0/1
+no shutdown
+end
+
+
+enable
+conf t
+int g0/0/1.1
+description subinterface for vlan1 (s1)
+encapsulation dot1Q 1
+ip address 148.42.8.225 255.255.255.224
+end
+
+
+enable
+conf t
+int g0/0/1.423
+description subinterface for vlan423
+encapsulation dot1Q 423
+ip address 148.42.0.1 255.255.248.0
+end
+
+r2:
+
+enable
+conf t
+int g0/0/1
+no shutdown
+end
+
+
+enable
+conf t
+int g0/0/1.1
+description subinterface for vlan1 (s2)
+encapsulation dot1Q 1
+ip address 148.42.9.1 255.255.255.224
+end
+
+
+enable
+conf t
+int g0/0/1.172
+description subinterface for vlan172
+encapsulation dot1Q 172
+ip address 148.42.8.1 255.255.255.128
+end
+
+ping 148.42.8.1
+ping 148.42.8.2
+ping 148.42.0.1
+ping 148.42.8.192
+ping 148.42.9.33
+ping 148.42.9.37
+ping 148.42.9.41
+ping 148.42.9.38
+ping 148.42.9.34
+ping 148.42.9.42
+ping 204.3.52.1
+
+
+ping 204.3.52.2
+
+ping 148.42.8.226
+
+ping 148.42.9.1
+ping 148.42.8.225
+ping 148.42.9.2
+
+
+ping 148.42.8.193
+ping 138.80.0.1
+ping 44.0.0.1
+ping 159.23.0.1
+ping 216.12.5.1
+
+
+ping 148.42.0.2
+
+going into step 14
+
+r1:
+
+enable
+conf t
+router rip
+version 2
+network 148.43.0.0
+passive-interface G0/0/1.1
+passive-interface G0/0/1.423
+end
+
+
+r2:
+
+enable
+conf t
+router rip
+version 2
+network 148.43.0.0
+passive-interface G0/0/1.1
+passive-interface G0/0/1.172
+end
+
+r3:
+
+enable
+conf t
+ip route 0.0.0.0 0.0.0.0 S0/2/0
+router rip
+version 2
+network 148.43.0.0
+default-information originate
+passive-interface loopback0
+end
+
+r4:
+
+enable
+conf t 
+ip route 148.43.0.0 255.255.0.0 S0/1/0
+end
+
+
+
+
+ping 148.43.0.0
+ping 148.43.8.193
+
+
+enable
+conf t 
+int fa0/1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+end
+
+
+enable
+conf t 
+int g1/0/11
+switchport trunk encapsulation dot1q
+switchport mode trunk
+end
+
+making some correction:
+
+enable
+conf t
+int g0/0/1.1
+description subinterface for vlan1 (s3 kodad)
+encapsulation dot1Q 1
+ip address 148.42.9.1 255.255.255.224
+end
+
+
+enable
+conf t
+int g0/0/1.1
+description subinterface for vlan1 (s2 pargi)
+encapsulation dot1Q 1
+ip address 148.42.8.225 255.255.255.224
+end
+
+enable
+conf t
+int g0/0/1.423
+description subinterface for vlan 23
+encapsulation dot1Q 423
+ip address 148.42.0.1 255.255.248.0
+end
+
+ping 148.42.8.2
+
+the ip address of pcs and everything else are written in copy
+
+
+
+enable
+conf t
+no router rip
+end
+
+no router rip
+no version 2
+no passive-interface GigabitEthernet0/0/1.1
+no passive-interface GigabitEthernet0/0/1.423
+no network 148.43.0.0
+
+no router rip
+no version 2
+no passive-interface GigabitEthernet0/0/1.1
+no passive-interface GigabitEthernet0/0/1.172
+no network 148.43.0.0
+!
+
+
+may need to fix the mac address parts as currently pc 6 is booked up and insteaed am using pc5

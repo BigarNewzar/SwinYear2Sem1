@@ -1,0 +1,145 @@
+NagiriR1#sh run
+Building configuration...
+
+Current configuration : 2310 bytes
+!
+version 15.4
+service timestamps log datetime msec
+service timestamps debug datetime msec
+no service password-encryption
+!
+hostname NagiriR1
+!
+!
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface GigabitEthernet0/0/1
+ no ip address
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/0/1.1
+ description Connection to VLan 1
+ encapsulation dot1Q 1 native
+ ip address 27.32.5.161 255.255.255.248
+!
+interface GigabitEthernet0/0/1.242
+ description Connection to VLan 242
+ encapsulation dot1Q 242
+ ip address 27.32.4.1 255.255.255.0
+ ip helper-address 27.32.5.170
+ ip access-group ACLVLAN242 in
+!
+interface GigabitEthernet0/0/1.724
+ description Connection to VLan 724
+ encapsulation dot1Q 724
+ ip address 27.32.0.1 255.255.252.0
+ ip helper-address 27.32.5.170
+ ip access-group ACLVLAN724 in
+!
+interface Serial0/1/0
+ description Connection to R2
+ ip address 27.32.5.169 255.255.255.252
+!
+interface Serial0/1/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/2/0
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Serial0/2/1
+ no ip address
+ clock rate 2000000
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+router ospf 10
+ log-adjacency-changes
+ passive-interface GigabitEthernet0/0/1.1
+ passive-interface GigabitEthernet0/0/1.242
+ passive-interface GigabitEthernet0/0/1.724
+ network 27.32.0.0 0.0.0.255 area 0
+ network 27.32.4.0 0.0.0.255 area 0
+ network 27.32.5.160 0.0.0.7 area 0
+ network 27.32.5.168 0.0.0.3 area 0
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+ip access-list standard ACLTELNET
+ permit 27.32.0.0 0.0.3.255
+ deny any
+ip access-list extended ACLVLAN724
+ permit tcp 27.32.0.0 0.0.3.255 host 154.3.0.1 eq www
+ deny ip 27.32.0.0 0.0.3.255 host 154.3.0.1
+ permit icmp 27.32.0.0 0.0.3.255 27.32.4.0 0.0.0.255 echo-reply
+ deny icmp 27.32.0.0 0.0.3.255 27.32.4.0 0.0.0.255
+ permit ip any any
+ip access-list extended ACLVLAN242
+ deny ip 27.32.4.0 0.0.0.255 27.32.5.128 0.0.0.31
+ permit ip any any
+!
+banner motd ^C********
+Welcome to NagiriR1
+103172423 Rezwan TUES 2:30PM
+*****^C
+!
+!
+!
+!
+!
+line con 0
+ logging synchronous
+ login
+!
+line aux 0
+!
+line vty 0 4
+ access-class ACLTELNET in
+ password cisco
+ login
+!
+!
+!
+end

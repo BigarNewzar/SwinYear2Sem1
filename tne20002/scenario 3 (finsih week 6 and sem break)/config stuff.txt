@@ -1,0 +1,515 @@
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+end
+
+
+enable
+conf t
+hostname KunriR1
+end
+
+
+enable
+conf t
+banner motd $*********
+Welcome to KunriR1
+103172423 Ragib Tues 2:30PM
+*********$
+end
+
+
+enable
+conf t
+hostname KunriS3
+end
+
+
+enable
+conf t
+banner motd $*********
+Welcome to KunriS3
+103172423 Ragib Tues 2:30PM
+*********$
+end
+
+
+
+enable
+conf t
+hostname MithiS2
+end
+
+
+enable
+conf t
+banner motd $*********
+Welcome to MithiS2
+103172423 Ragib Tues 2:30PM
+*********$
+end
+
+
+enable
+conf t
+hostname BadinR3
+end
+
+
+enable
+conf t
+banner motd $*********
+Welcome to BadinR3
+103172423 Ragib Tues 2:30PM
+*********$
+end
+
+
+enable
+conf t
+hostname MithiR2
+end
+
+
+enable
+conf t
+banner motd $*********
+Welcome to MithiR2
+103172423 Ragib Tues 2:30PM
+*********$
+end
+
+
+enable
+conf t
+hostname ISP
+end
+
+
+enable
+conf t
+banner motd $*********
+Welcome to ISP
+103172423 Ragib Tues 2:30PM
+*********$
+end
+
+
+enable
+conf t
+vlan 143
+name Peas
+end
+
+enable
+conf t
+int range G1/0/13-14
+switchport mode access
+switchport access vlan 143
+end
+
+sh vlan brief
+
+enable
+conf t
+int range G1/0/13-14
+switchport port-security
+switchport port-security maximum 2
+switchport port-security violation shutdown
+switchport port-security mac-address sticky
+end
+
+show port-security
+
+
+
+enable
+conf t
+vlan 172
+name Flour
+vlan 112
+name Rice
+end
+
+enable
+conf t
+int range fa0/24
+switchport mode access
+switchport access vlan 172
+end
+
+sh vlan b
+
+
+
+enable 
+conf t
+int G1/0/11
+switchport trunk encapsulation dot1q
+switchport mode trunk
+end
+
+sh int trunk
+
+enable
+conf t
+int G0/1
+switchport mode trunk
+end
+
+
+enable
+conf t
+int vlan 1
+description Management Vlan
+ip address 131.43.5.98 255.255.255.224
+no shutdown
+end
+
+sh vlan b
+sh ip int b
+
+enable
+conf t
+ip default-gateway 131.43.5.97
+end
+
+
+
+enable
+conf t
+int vlan 1
+description Management Vlan
+ip address 131.43.5.130 255.255.255.248
+no shutdown
+end
+
+sh vlan b
+sh ip int b
+
+enable
+conf t
+ip default-gateway 131.43.5.129
+end
+
+
+enable
+conf t
+enable password cisco
+line vty 0 15
+password cisco
+login
+end
+exit
+
+
+enable
+conf t
+int S0/1/1
+description Connection R1 to R3 (serial1)
+ip address 131.43.5.137 255.255.255.252
+no shutdown
+end
+
+enable
+conf t
+int S0/1/0
+description Connection R3 to R1 (serial1)
+ip address 131.43.5.138 255.255.255.252
+no shutdown
+end
+
+
+enable
+conf t
+int S0/1/0
+description Connection R1 to R2 (serial2)
+ip address 131.43.5.141 255.255.255.252
+no shutdown
+end
+
+enable
+conf t
+int S0/1/0
+description Connection R2 to R1 (serial2)
+ip address 131.43.5.142 255.255.255.252
+no shutdown
+end
+
+enable
+conf t
+int S0/1/1
+description Connection R2 to R3 (serial3)
+ip address 131.43.5.145 255.255.255.252
+no shutdown
+end
+
+enable
+conf t
+int S0/1/1
+description Connection R3 to R2 (serial3)
+ip address 131.43.5.146 255.255.255.252
+no shutdown
+end
+.................................
+enable
+conf t
+int Lo0
+description Database Server on R3
+ip address 131.43.5.65 255.255.255.224
+end
+
+enable
+conf t
+int S0/2/0
+description Connection R3 to ISP (ISP link)
+ip address 211.13.82.1  255.255.255.252
+end
+
+
+enable
+conf t
+int S0/1/0
+description Connection ISP to R3 (ISP link)
+ip address 211.13.82.2  255.255.255.252
+end
+
+enable
+conf t
+int G0/0/0
+description Connection ISP to S0
+ip address 143.18.0.1 255.255.0.0
+no shutdown
+end
+
+enable
+conf t
+int G0/0/1
+description Connection ISP to S1
+ip address 74.0.0.1 255.0.0.0
+no shutdown
+end
+
+
+enable
+conf t
+int lo2
+description loopback2
+ip address 169.33.0.1  255.255.0.0
+no shutdown
+end
+
+
+enable
+conf t
+int lo3
+description loopback3
+ip address 211.5.31.1  255.255.255.0
+no shutdown
+end
+
+enable
+conf t
+int G0/0/1
+no shutdown
+end
+
+enable
+conf t
+int G0/0/1.1
+description Management Vlan subinterface
+encapsulation dot1Q 1
+ip address 131.43.5.97 255.255.255.224
+end
+
+
+enable
+conf t
+int G0/0/1.423
+description Vlan 423 subinterface
+encapsulation dot1Q 423
+ip address 131.43.0.1 255.255.252.0
+end
+
+
+
+enable
+conf t
+int G0/0/1
+no shutdown
+end
+
+enable
+conf t
+int G0/0/1.1
+description Management Vlan subinterface
+encapsulation dot1Q 1
+ip address 131.43.5.129 255.255.255.248
+end
+
+
+enable
+conf t
+int G0/0/1.172
+description Vlan 172 subinterface
+encapsulation dot1Q 172
+ip address 131.43.4.1 255.255.255.0
+end
+
+ping 131.43.5.98
+telnet 131.43.5.98
+
+ping 131.43.0.1
+
+ping 131.43.5.129
+
+ping 131.43.5.98 source 131.43.0.1
+
+
+
+router EIGRP 65 
+network 131.43.5.96 0.0.0.31
+network 131.43.0.0 0.0.3.255
+network 131.43.5.140 0.0.0.3
+network 131.43.5.136 0.0.0.3
+passive-interface G0/0/1.1  
+passive-interface G0/0/1.423
+
+router EIGRP 65 
+network 131.43.5.128 0.0.0.7
+network 131.43.4.0 0.0.0.255
+network 131.43.5.140 0.0.0.3
+network 131.43.5.144 0.0.0.3
+passive-interface G0/0/1.1  
+passive-interface G0/0/1.172
+
+ip route 0.0.0.0  0.0.0.0 S0/2/0 
+router EIGRP 65 
+network 131.43.5.136 0.0.0.3
+network 131.43.5.144 0.0.0.3
+network 131.43.5.65 0.0.0.31
+redistribute static 
+passive-interface loopback0  
+
+
+ip route 131.43.0.0 255.255.0.0  S0/1/0
+
+ping 131.42.4.2
+
+b
+
+
+m
+
+
+b
+
+enable 
+conf t
+int S0/1/0
+bandwidth 64
+end
+
+enable 
+conf t
+int S0/1/1
+bandwidth 512
+end
+
+k
+enable 
+conf t
+int S0/1/1
+bandwidth 64
+end
+
+enable 
+conf t
+int S0/1/0
+bandwidth 128
+end
+
+m
+
+enable 
+conf t
+int S0/1/0
+bandwidth 128
+end
+
+enable 
+conf t
+int S0/1/1
+bandwidth 512
+end
+
+
+enable
+conf t
+line vty 0 4
+password cisco
+login
+access-class ACLTELNET in
+end
+exit
+
+! on Kunri
+
+enable
+conf t
+no ip access-list extended   ACLVLAN423  
+Ip      access-list extended   ACLVLAN423   
+permit  tcp    131.43.0.0   0.0.3.255   host  143.18.0.2 eq  www
+deny     ip     131.43.0.0   0.0.3.255   host   143.18.0.2
+permit  ip      any   any  
+end
+
+enable
+conf t
+interface G0/0/1.423 
+ip access-group  ACLVLAN423   in    
+end
+
+
+! On kunri
+
+
+enable
+conf t
+no ip access-list standard ACLTELNET
+ip  access-list  standard  ACLTELNET
+permit  131.43.0.0   0.0.3.255  
+deny any 
+end
+
+en
+conf t
+line vty 0 4
+  password cisco
+  login
+  access-class ACLTELNET in 
+end
+
+
+! On Badin
+
+enable
+conf t
+no ip access-list standard ACLTELNET
+ip  access-list  standard  ACLTELNET
+
+    deny  131.43.0.0   0.0.3.255
+    permit any 
+end
+
+en
+conf t
+line vty 0 4
+  password cisco
+  login
+  access-class ACLTELNET in 
+end
+
+(scenario 3 all done and all works)

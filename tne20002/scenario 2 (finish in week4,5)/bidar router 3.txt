@@ -1,0 +1,183 @@
+
+BidarRouter#sh run
+Building configuration...
+
+
+Current configuration : 2132 bytes
+!
+! Last configuration change at 10:48:26 UTC Sat Mar 19 2022
+!
+version 16.7
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+!
+hostname BidarRouter
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition Mgmt-intf
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+!
+!
+!
+!
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+license udi pid ISR4321/K9 sn FDO2144302A
+license boot suite FoundationSuiteK9
+license boot level securityk9
+no license smart enable
+diagnostic bootup level minimal
+!
+spanning-tree extend system-id
+!
+!
+!
+!
+redundancy
+ mode none
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ description bidar database server
+ ip address 148.42.8.193 255.255.255.224
+!
+interface GigabitEthernet0/0/0
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet0/0/1
+ no ip address
+ shutdown
+ negotiation auto
+!
+interface Serial0/1/0
+ description serial to R1
+ ip address 148.42.9.34 255.255.255.252
+!
+interface Serial0/1/1
+ description serial to R2
+ ip address 148.42.9.42 255.255.255.252
+!
+interface Serial0/2/0
+ description connection to R4
+ ip address 204.3.52.1 255.255.255.252
+!
+interface Serial0/2/1
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0
+ vrf forwarding Mgmt-intf
+ no ip address
+ shutdown
+ negotiation auto
+!
+router rip
+ version 2
+ passive-interface Loopback0
+ network 148.43.0.0
+ default-information originate
+!
+ip forward-protocol nd
+ip http server
+ip http authentication local
+ip http secure-server
+ip tftp source-interface GigabitEthernet0
+ip route 0.0.0.0 0.0.0.0 Serial0/2/0
+!
+!
+!
+!
+!
+!
+control-plane
+!
+banner motd ^C
+Welcome to BidarRouter
+103172423, Rezwan,Tuesday 2:30pm to 5:30pm
+^C
+!
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ transport input none
+ stopbits 1
+line aux 0
+ stopbits 1
+line vty 0 4
+ login
+!
+wsma agent exec
+!
+wsma agent config
+!
+wsma agent filesys
+!
+wsma agent notify
+!
+!
+end
