@@ -1,0 +1,122 @@
+
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname LucaniSw1
+end
+
+	enable
+	conf t
+	vlan 33
+	name Management
+	end
+	
+	enable
+	conf t
+	int vlan 33
+	description Vlan for management
+	ip address 70.32.7.106 255.255.255.248
+	end
+
+	sh vlan b
+	sh ip int b
+
+
+	enable
+	conf t
+	ip default-gateway 70.32.7.105
+	end
+
+
+	en
+	conf t
+	int range G1/0/1-24
+	shutdown
+	end
+	
+	en
+	conf t
+	int range G1/1/1-4
+	shutdown
+	end
+
+	en
+	conf t
+	int range G1/0/1-3	
+	no shutdown
+	end
+	
+	en
+	conf t
+	int G1/0/1	
+	switchport mode trunk
+	switchport trunk encapsulation dot1q
+	no shutdown
+	end
+
+	en
+	conf t
+	int G1/0/2	
+	switchport mode trunk
+	switchport trunk encapsulation dot1q
+	no shutdown
+	end
+	
+	
+		
+	en
+	conf t
+	int Vlan33
+	no shutdown
+	end
+	
+	enable
+	conf t
+	vlan 40
+	name Lucani_Sales
+	end
+		
+	enable
+	conf t
+	vlan 41
+	name Lucani_Security
+	end
+		
+	enable
+	conf t
+	vlan 42
+	name Lucani_Printer
+	end
+	
+	enable
+	conf t
+	vlan 43
+	name Lucani_V.Service
+	end
+	
+	enable
+	conf t
+	vlan 44
+	name Lucani_TechSup
+	end
+	
+	enable
+	conf t
+	vlan 45
+	name Lucani_Wireless
+	end
+	
+	enable
+conf t
+int G1/0/3
+switchport mode access
+switchport access vlan 45
+end
+	

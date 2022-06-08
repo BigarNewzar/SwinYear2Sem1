@@ -1,0 +1,70 @@
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname LjubisRouter
+end
+
+
+enable
+conf t
+int G0/0/0
+no shutdown
+end
+
+enable
+conf t
+int G0/0/0.31
+description Connection to vlan 31 (Ljubis Leasing)
+encapsulation dot1Q 31
+ip address 70.32.6.1 255.255.255.128
+end
+
+enable
+conf t
+int G0/0/0.33
+description Connection to vlan 33 (Management)
+encapsulation dot1Q 33
+ip address 70.32.7.97 255.255.255.248
+end
+
+enable
+conf t
+int G0/0/0.32
+description Connection to vlan 32 (Ljubis Security)
+encapsulation dot1Q 32
+ip address 70.32.6.177 255.255.255.240
+end
+
+enable
+conf t
+int G0/0/0.34
+description Connection to vlan 34 (Ljubis Printer)
+encapsulation dot1Q 34
+ip address 70.32.7.125 255.255.255.252
+end
+
+enable
+conf t
+int G0/0/0.35
+description Connection to vlan 35 (Ljubis V.Service)
+encapsulation dot1Q 35
+ip address 70.32.6.209 255.255.255.240
+end
+
+
+enable
+conf t
+int G0/0/0.36
+description Connection to vlan 36 (Ljubis TechSup)
+encapsulation dot1Q 36
+ip address 70.32.6.193 255.255.255.240
+end
+
+
+

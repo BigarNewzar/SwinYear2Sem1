@@ -1,0 +1,98 @@
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname GucaRouter
+end
+
+
+enable
+conf t
+int G0/0/0
+no shutdown
+end
+
+enable
+conf t
+int G0/0/0.20
+description Connection to vlan 20 (Guca Business)
+encapsulation dot1Q 20
+ip address 70.32.0.1 255.255.254.0
+end
+
+enable
+conf t
+int G0/0/0.33
+description Connection to vlan 33 (Management)
+encapsulation dot1Q 33
+ip address 70.32.7.81 255.255.255.248
+end
+
+enable
+conf t
+int G0/0/0.21
+description Connection to vlan 21 (Guca Leasing)
+encapsulation dot1Q 21
+ip address 70.32.4.1 255.255.255.0
+end
+
+enable
+conf t
+int G0/0/0.22
+description Connection to vlan 22 (Guca Market)
+encapsulation dot1Q 22
+ip address 70.32.2.1 255.255.255.0
+end
+
+enable
+conf t
+int G0/0/0.23
+description Connection to vlan 23 (Guca Printer)
+encapsulation dot1Q 23
+ip address 70.32.7.121 255.255.255.252
+end
+
+
+enable
+conf t
+int G0/0/0.24
+description Connection to vlan 24 (Guca Security)
+encapsulation dot1Q 24
+ip address 70.32.6.129 255.255.255.240
+end
+
+enable
+conf t
+int G0/0/0.25
+description Connection to vlan 25 (Guca TechSup)
+encapsulation dot1Q 25
+ip address 70.32.6.145 255.255.255.240
+end
+
+enable
+conf t
+int G0/0/0.26
+description Connection to vlan 26 (Guca V.Service)
+encapsulation dot1Q 26
+ip address 70.32.6.161 255.255.255.240
+end
+
+enable
+conf t
+int G0/0/1
+description Connection to Server
+ip address 70.32.7.65 255.255.255.240
+no shutdown
+end
+
+ping 70.32.7.65
+
+
+
+
+problem GucaSW1 and Sw2 are not carrying trunk traffic for vlan 20-26. how to fix this?

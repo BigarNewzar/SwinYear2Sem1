@@ -1,0 +1,78 @@
+NAT config:
+(need to do both 1 and 2!)
+
+1)At first isolate the list of ips you are going to use statically for the server farms.
+
+(for those servers, need thier interface ids)
+
+!
+ip nat inside source static <<private internal ip>> <<public ip>> 
+!
+interface <<interface to that server>>
+ip address <<private internal ip>> <<mask for private one>>
+ip nat inside
+!
+!
+interface <<interface to outside>>
+ip address <<public external ip>> <<mask for public one>>
+ip nat outside
+!
+
+
+
+2) then for the dynamic ones, devide the rest of the ips into equal ip range for each vlans (no need vlsm, instead devide them equally. like if there are 4 vlans, devide the remaining ips into 4 equal parts)
+
+enable
+conf t
+ip nat pool <<Pool name like POOLVLANXXX>>   <<starting public IP address devided for that vlan>>    <<ending public IP address devided for that vlan>>    netmask <<either network or wildcard of those IPs>>
+end
+
+enable
+conf t
+ip access-list extended <<Pool name like POOLVLANXXX>>
+permit  ip  <<subnet for that vlan (thier actual network we set in the vlsm chart)>>    <<the wildcard for them using the subnet they had in vlsm chart>>   any 
+
+ip  nat  inside  source  list <<source  list name like ACLVLANXXX>> pool  <<POOLVLANXXX>>  overload
+end
+
+
+(need to check this part to see which part is considered inside and outside)
+enable
+conf t
+interface  <<serial interface to inside network>>
+ip nat inside
+interface <<serial interface to external network or internet>>
+ip nat outside
+end
+
+
+
+.....................................................................
+
+
+
+
+example from scenario 5: (for no 2)
+
+Configure ONLY on Router Raipur
+The NAT Public Address Pool, provided by the ISP is 141.12.2.0/24, this is a range of Ip addresses, divide 3 ways, do not VLSM
+Nat Pools for each VLAN                    
+                  ip nat pool POOLVLANXXX   starting IP address    ending IP address    netmask ?.?.?.?
+                  ip nat pool POOLVLANYYY   starting IP address    ending IP address    netmask ?.?.?.?
+                  ip nat pool POOLVLAN1       starting IP address     ending IP address    netmask ?.?.?.?  
+NAT Access Control Lists
+       ip access-list extended ACLVLANXXX
+           permit  ip     source subnet    wildcard   any 
+       ip access-list extended ACLVLANYYY
+           permit  ip     source subnet    wildcard   any
+       ip access-list extended ACLVLAN1
+           permit  ip     source subnet    wildcard   any
+Establish dynamic source translation by binding the pools to the access control lists
+       ip  nat   inside  source  list   ACLVLANXXX        pool  POOLVLANXXX
+       ip  nat   inside  source  list   ACLVLANYYY        pool  POOLVLANYYY
+       ip  nat   inside  source  list   ACLVLAN1            pool  POOLVLAN1
+Specify inside and outside NAT interfaces
+       interface  serial 0/1/0
+         ip nat inside
+       interface serial 0/1/1
+          ip nat outside

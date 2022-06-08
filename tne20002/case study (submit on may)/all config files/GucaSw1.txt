@@ -1,0 +1,296 @@
+GucaSW1
+
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname GucaSw1
+end
+
+
+	enable
+	conf t
+	vlan 33
+	name Management
+	end
+	
+	enable
+	conf t
+	int vlan 33
+	description Vlan for management
+	ip address 70.32.7.82 255.255.255.248
+	end
+
+	sh vlan b
+	sh ip int b
+
+
+	enable
+	conf t
+	ip default-gateway 70.32.7.81
+	end
+
+
+	en
+	conf t
+	int range G1/0/1-24
+	shutdown
+	end
+	
+	en
+	conf t
+	int range G1/1/1-4
+	shutdown
+	end
+
+	en
+	conf t
+	int range G1/0/1-2
+	
+	no shutdown
+	end
+	
+	
+
+	en
+	conf t
+	int G1/0/1	
+	switchport mode trunk
+	switchport trunk encapsulation dot1q
+	no shutdown
+	end
+	
+	en
+	conf t
+	int G1/0/2	
+	switchport mode trunk
+	switchport trunk encapsulation dot1q
+	no shutdown
+	end
+	
+	en
+	conf t
+	int G1/0/3	
+	switchport mode trunk
+	switchport trunk encapsulation dot1q
+	no shutdown
+	end
+	
+	en
+	conf t
+	int Vlan33
+	no shutdown
+	end
+	
+	enable
+	conf t
+	vlan 20
+	name Guca_Business
+	end
+	
+	enable
+	conf t
+	vlan 21
+	name Guca_Leasing
+	end
+	
+	enable
+	conf t
+	vlan 22
+	name Guca_Market
+	end
+
+	enable
+	conf t
+	vlan 23
+	name Guca_Printer
+	end
+
+
+enable
+	conf t
+	vlan 24
+	name Guca_Security
+	end
+
+
+	
+	enable
+	conf t
+	vlan 25
+	name Guca_TechSupport
+	end
+
+	
+	enable
+	conf t
+	vlan 26
+	name Guca_V.Service
+	end
+
+	
+enable
+conf t
+ip domain-name ccna.lab
+crypto key generate rsa general-keys modulus 1024
+username cisco privilege 15 secret cisco
+line vty 0 15
+transport input ssh
+login local
+end
+	
+	
+	
+..........................................................................	
+
+2)Ljubis switches extra parts: (on all access ports for all vlans)
+
+enable
+conf t
+int range <<range of interfaces that will have that port security>>
+switchport port-security
+end
+
+
+3)Makat switches extra part: (on all access ports for all vlans)
+(need to connect a wire between the two access switches and then do stp)
+
+(so would need to fix the topology!!!)
+
+	on distribution switch of makat: (must set for all vlans in makat)
+	
+	enable
+	conf t
+	spanning-tree vlan <<ids you want this switch to be primary on>> root primary
+	end
+
+(if need be incease path cost between access switch to ensure stp keeps that path off unless one goes down. but i dont think will be needed though)
+
+en
+conf t
+int range <<interface id>>
+spanning-tree cost <<a value greater than default>>
+end
+
+(to fix it just write "default spanning-tree cost" there)
+
+
+
+4) Guca switches extra part: 
+(on switch so no need acl, just give password and username to them only)
+
+enable
+conf t
+ip domain-name ccna.lab
+crypto key generate rsa general_keys modulus 1024
+
+username <<write username here and remove symbols>> privilege 15 secret <<write password here and remove symbols>>
+line vty 0 15
+transport input ssh
+login local
+end
+
+(can only test it after management vlan is set up with ip)
+ssh -l <<username set>> <<ip of that switch>>
+
+
+since not mentioned anywhere but is crutial, just do the subinterface part on all vlans too 
++ config all loopback/ server connections too
++
+and ensure pingin works on all parts of network now + since packet tracer, make sure to use (dot1q version of the trunk)
+
+enable
+conf t
+int <<the main interface that will be subdevided>>
+no shutdown
+end
+
+enable
+conf t
+int <<the main interface that will be subdevided>>.<<subinterface vlan id>>
+description <<desciption/ purpose of that subinterface>>
+encapsulation dot1Q <<vlan ID>>
+ip address <<ip address>> <<mask>>
+end
+
+for packet tracer
+
+enable 
+conf t
+int <<the port in switch connected to the router>>
+switchport trunk encapsulation dot1q
+switchport mode trunk
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Server Pt-
+
+For GucaR1: (router):
+
+For GucaSwitch1:
+
+For Guca's multilayer Switch10:
+
+For GucaAccessSw1:
+
+For GucaAccessSw2:
+
+
+For LjubisR2: (router)
+
+For LjubisSwitch2:
+
+For LjubisAccessSw:
+
+
+For LucaniR3: (router)
+
+For LucaniSwitch3:
+
+For LucaniAccessSw:
+
+
+For MakatR4: (router)
+
+For MakatSwitch4:
+
+For MakatAccessSw1:
+
+For MakatAccessSw2:

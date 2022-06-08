@@ -1,0 +1,149 @@
+GucaAccessSw1
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname GucaAccessSw1
+end
+
+enable
+	conf t
+	vlan 20
+	name Guca_Business
+	end
+
+	sh vlan brief
+
+
+	enable
+	conf t
+	int G1/0/1
+	switchport mode access
+	switchport access vlan 20
+	end
+	
+	enable
+	conf t
+	vlan 21
+	name Guca_Leasing
+	end
+
+	sh vlan brief
+
+
+	enable
+	conf t
+	int G1/0/3
+	switchport mode access
+	switchport access vlan 21
+	end
+	
+	enable
+	conf t
+	vlan 22
+	name Guca_Market
+	end
+
+	sh vlan brief
+
+
+	enable
+	conf t
+	int G1/0/4
+	switchport mode access
+	switchport access vlan 22
+	end
+	
+	enable
+	conf t
+	vlan 23
+	name Guca_Printer
+	end
+
+	sh vlan brief
+
+
+	enable
+	conf t
+	int G1/0/5
+	switchport mode access
+	switchport access vlan 23
+	end
+
+
+	enable
+	conf t
+	vlan 33
+	name Management
+	end
+	
+	enable
+	conf t
+	int vlan 33
+	description Vlan for management
+	ip address 70.32.7.84 255.255.255.248
+	end
+
+	sh vlan b
+	sh ip int b
+
+
+	enable
+	conf t
+	ip default-gateway 70.32.7.81
+	end
+
+
+	en
+	conf t
+	int range G1/0/1-24
+	shutdown
+	end
+	
+	en
+	conf t
+	int range G1/1/1-4
+	shutdown
+	end
+
+	en
+	conf t
+	int range G1/0/1-5
+	
+	no shutdown
+	end
+	
+	
+
+	en
+	conf t
+	int G1/0/2
+	switchport trunk encapsulation dot1q
+	switchport mode trunk
+	no shutdown
+	end
+	
+	
+	en
+	conf t
+	int Vlan33
+	no shutdown
+	end
+	
+
+	
+enable
+conf t
+ip domain-name ccna.lab
+crypto key generate rsa general-keys modulus 1024
+username cisco privilege 15 secret cisco
+line vty 0 15
+transport input ssh
+login local
+end

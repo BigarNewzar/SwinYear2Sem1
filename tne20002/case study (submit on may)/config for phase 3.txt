@@ -1,0 +1,64 @@
+Config for Phase 3
+
+A) OSPF MD5 authentication link: see the code from online
+
+B)Bandiwdth on all links: (they said to keep all internal router serial link bandwidth 256)
+
+enable
+conf t
+int <<interface ID>>
+bandwidth 256
+end
+
+
+10/(<<bandwidth>>*1000) = cost
+
+(use this to check the cost in "sh run")
+
+c)passive interface setup OSPF (for all loopback/servers and subinterfaces in internal routers) +set up network parts for all the subnets on the router
+
+	enabling ospf on all internal routers: (keep process id 1)
+	(keep router ip as a.a.a.a like 1.1.1.1, 2.2.2.2, 3.3.3.3 and 4.4.4.4 for the 4 routers)
+	
+	enable
+	conf t
+	router ospf 1
+	router-id <<ip address that you want to set as router ip>>
+	network <<network id of subnets on router>>  <<wildcard>> area 0 
+	passive-interface <<subinterfaces and loopback interface id>> 
+	end
+	
+	(for network and passive-interface use as many as you need, new subnet to add, new network part, new subinterface port or loopback, new passive interface line)
+	
+	on isp, dont configure ospf, instead just configure:
+	
+	ip route <<network allocated as internal network>> <<subnet mask or wildcard>> <<interface or port to makat router>>
+	
+d + e)Default route to makat isp from makat router: + advertise it
+
+on makat router:
+enable
+conf t
+router ospf 1
+ip route 0.0.0.0  0.0.0.0  <<interface to isp>> 
+default-information originate  
+end
+
+f) Guca router shh setup : (will need to set up acl part as well for it so google that part too (note: the acl will be set on phase 10 part))
+
+(normal router ssh setup)
+enable
+conf t
+ip domain-name ccna.lab
+username <<write username here and remove symbols>> privilege 15 secret <<write password here and remove symbols>>
+line vty 0 4
+transport input ssh
+login local
+exit
+crypto key generate rsa general_keys modulus 1024
+end
+
+to test it:
+ssh -l <<username set>> <<ip of that router>>
+	
+	

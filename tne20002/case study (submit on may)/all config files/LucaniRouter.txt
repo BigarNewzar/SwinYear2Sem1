@@ -1,0 +1,87 @@
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname LucaniRouter
+end
+
+
+enable
+conf t
+int G0/0/0
+no shutdown
+end
+
+enable
+conf t
+int G0/0/0.45
+description Connection to vlan 45 (Lucani Wireless)
+encapsulation dot1Q 45
+ip address 70.32.7.89 255.255.255.248
+end
+
+enable
+conf t
+int G0/0/0.40
+description Connection to vlan 40 (Lucani Sales)
+encapsulation dot1Q 40
+
+ip address 70.32.3.1 255.255.255.0
+end
+
+
+enable
+conf t
+int G0/0/0.41
+description Connection to vlan 41 (Lucani Security)
+encapsulation dot1Q 41
+
+ip address 70.32.6.225 255.255.255.240
+end
+
+
+
+enable
+conf t
+int G0/0/0.42
+description Connection to vlan 42 (Lucani Printer)
+encapsulation dot1Q 42
+
+ip address 70.32.7.129 255.255.255.252
+end
+
+
+enable
+conf t
+int G0/0/0.43
+description Connection to vlan 43 (Lucani V.Service)
+encapsulation dot1Q 43
+
+ip address 70.32.7.1 255.255.255.240
+end
+
+
+enable
+conf t
+int G0/0/0.44
+description Connection to vlan 44 (Lucani TechSup)
+encapsulation dot1Q 44
+
+ip address 70.32.6.241 255.255.255.240
+end
+
+
+enable
+conf t
+int G0/0/0.33
+description Connection to vlan 33 (Management)
+encapsulation dot1Q 33
+
+ip address 70.32.6.105 255.255.255.248
+end
+

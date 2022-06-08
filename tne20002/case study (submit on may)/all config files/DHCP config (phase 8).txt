@@ -1,0 +1,45 @@
+DHCP Config commands:
+
+enable
+conf t
+service dhcp
+ip dhcp pool <<any pool name like poolvlanxxx>>
+network  <<network address for that vlan>> <<maskfor that vlan>>
+default-router  <<ip address assigned to subinterface for that vlan set on the router>> 
+end
+
+(set for all the vlans on that router that needs DHCP (ie the Ljubis vlans))
+
+
+
+
+
+
+
+
+
+example command from the scenario:
+
+service dhcp  (turns on DHCP service)
+
+                  ip dhcp pool poolVLANXXX
+                      network  subnetwork  subnetwork mask 
+                      default-router  ip address of G0/0/1.XXX 
+
+                 ip dhcp pool poolVLANYYY
+                    network subnetwork  subnetwork mask 
+                    default-router  ip address of G0/0/1.YYY 
+
+
+
+
+
+       Trouble Shooting Commands
+
+ show ip dhcp pool
+ show ip dhcp binding 
+ clear ip dhcp binding *
+ debug ip dhcp server events
+ open DOS CMD window on PC1 and PC2
+ ipconfig  /release (release IP Address) 
+ ipconfig  /renew   (renew   IP address)

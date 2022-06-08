@@ -1,0 +1,125 @@
+LjubisSw1
+
+
+
+enable
+conf t
+no ip domain-lookup
+line console 0
+logging synchronous
+exit
+
+enable
+conf t
+hostname LjubisSw1
+end
+
+enable
+conf t
+int range G1/0/1
+switchport port-security
+end
+
+enable
+conf t
+int range G1/0/3-6
+switchport port-security
+end
+
+	enable
+	conf t
+	vlan 33
+	name Management
+	end
+	
+	enable
+	conf t
+	int vlan 33
+	description Vlan for management
+	ip address 70.32.7.98 255.255.255.248
+	end
+
+	sh vlan b
+	sh ip int b
+
+
+	enable
+	conf t
+	ip default-gateway 70.32.7.97
+	end
+
+
+	en
+	conf t
+	int range G1/0/1-24
+	shutdown
+	end
+	
+	en
+	conf t
+	int range G1/1/1-4
+	shutdown
+	end
+
+	en
+	conf t
+	int range G1/0/1-2
+	
+	no shutdown
+	end
+	
+	
+
+	en
+	conf t
+	int G1/0/1	
+	switchport mode trunk
+	switchport trunk encapsulation dot1q
+	no shutdown
+	end
+	
+	en
+	conf t
+	int G1/0/2	
+	switchport mode trunk
+	switchport trunk encapsulation dot1q
+	no shutdown
+	end
+	
+		
+	en
+	conf t
+	int Vlan33
+	no shutdown
+	end
+	
+	enable
+	conf t
+	vlan 31
+	name Ljubis_Leasing
+	end
+		
+	enable
+	conf t
+	vlan 32
+	name Ljubis_Security
+	end
+		
+	enable
+	conf t
+	vlan 34
+	name Ljubis_Printer
+	end
+	
+	enable
+	conf t
+	vlan 35
+	name Ljubis_V.Service
+	end
+	
+	enable
+	conf t
+	vlan 36
+	name Ljubis_TechSup
+	end
+	
