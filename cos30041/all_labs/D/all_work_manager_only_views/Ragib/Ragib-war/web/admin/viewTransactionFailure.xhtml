@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+         <meta charset="utf-8"  />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <!--refernece: https://www.w3schools.com/html/html_responsive.asp-->
+        <!--it makes it appropriate for mobile and tablet use-->
+        <meta name="description"  content="Tv purchase, view fail" />
+        <meta name="keywords"  content="Tv purchase, view fail" />
+        <meta name="author"  content="S M Ragib Rezwan" />
+
+         <link href="/Ragib-war/cssStyle/cssMain.css" rel="stylesheet"/>
+        <link rel="icon" href="/Ragib-war/images/logoMain.png" type="image/x-icon"/>
+        <!--refernece: https://www.w3schools.com/tags/att_link_sizes.asp -->
+        <!--it adds a logo beside tab bar-->
+        <title>Ragib Televisions (View Fail)</title>
+    </h:head>
+    <h:body>
+        
+        <h2>The Transaction whose id is
+            <h:outputText value="#{myCustomerManagedBean.transaction_id}"/>
+        cannot be found
+        </h2>
+        
+
+        Click <h:outputLink value="managerMenu.xhtml">here</h:outputLink>
+        to return to the Main Menu
+        
+    </h:body>
+</html>
+

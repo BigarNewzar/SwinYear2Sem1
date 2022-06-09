@@ -1,0 +1,267 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <meta charset="utf-8"  />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <!--refernece: https://www.w3schools.com/html/html_responsive.asp-->
+        <!--it makes it appropriate for mobile and tablet use-->
+        <meta name="description"  content="Tv purchase, payment" />
+        <meta name="keywords"  content="Tv purchase, payment" />
+        <meta name="author"  content="S M Ragib Rezwan" />
+
+        <link href="cssStyle/cssMain.css" rel="stylesheet"/>
+        <link rel="icon" href="/Ragib-war/images/logoMain.png" type="image/x-icon"/>
+        <!--refernece: https://www.w3schools.com/tags/att_link_sizes.asp -->
+        <!--it adds a logo beside tab bar-->
+        <title>Ragib Televisions (Payment)</title> 
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a href="index.xhtml"> Home </a> |
+                <a href="product.xhtml">Products</a> |
+                <a href="enquire.xhtml">Enquire</a> |
+                <a href="about.xhtml"> Owner Details</a>
+                <a href="managerLogin.xhtml"> Manager</a>  
+                <hr/>
+                <!-- make navigation bar fixed by putting them in class and  giving
+                class {position: fixed; top:0; width:100%} -->
+                <!--refernce from: https://www.w3schools.com/css/css_navbar_horizontal.asp -->
+            </nav>
+        </header>
+
+        <aside id="right"> <!--put advert here to right of page-->
+            <figure>
+
+                <a href="https://www.primevideo.com/region/eu" >
+                    <img class="img" src="images/stream.png" alt="amazon stream advert" align="right"/>
+                </a>
+
+                <p>
+                    <a href="  https://www.pinterest.com/pin/561964859746504753/"> pic reference </a>
+                </p>
+                <!-- advert 1 src = https://www.pinterest.com/pin/561964859746504753/-->
+
+            </figure>
+        </aside>
+
+
+        <h1 id="bring_down">Product Payment details:</h1>
+
+        <article id= "Faq_no_b">
+
+            <section>
+                <h:form id="payment">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Transaction Id:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.transaction_id}"/>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="First Name:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.firstname}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Last Name:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.lastname}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Email:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.email}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Address:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.address}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Suburb:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.suburb}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Postcode:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.postcode}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Phone number:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.phone}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Price:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.product_name}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Quantity:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.quantity}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Comment"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.comment}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card Name:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="credit_card_name" 
+                                                 maxlength="40"
+                                                 required="true"
+                                                 requiredMessage="Credit card name must not be blank"
+                                                 value="#{myCustomerManagedBean.credit_card_name}"
+                                                 validatorMessage="Name must not have numbers"> 
+                                        <f:validateRegex pattern="^[a-zA-Z]+$"/>
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="credit_card_name" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card Number"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="credit_card_number" 
+                                                 maxlength="16"
+                                                 required="true"
+                                                 requiredMessage="Card number must not be blank"
+                                                 value="#{myCustomerManagedBean.credit_card_number}"
+                                                 validatorMessage="it must have 16 digits!"> 
+                                        <f:validateRegex pattern="^\d{16}$"/>
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="credit_card_number" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card Expiration Date"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="credit_card_expiry_date" 
+                                                 maxlength="4"
+                                                 required="true"
+                                                 requiredMessage="expiration date must not be blank"
+                                                 value="#{myCustomerManagedBean.credit_card_expiry_date}"
+                                                 validatorMessage="it must be in mmyy format!"> 
+                                        <f:validateRegex pattern="^(0[1-9]|1[0-2])\d{2}$"/>
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="credit_card_expiry_date" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card CVV"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="credit_card_CVV" 
+                                                 maxlength="3"
+                                                 required="true"
+                                                 requiredMessage="CVV must not be blank"
+                                                 value="#{myCustomerManagedBean.credit_card_CVV}"
+                                                 validatorMessage="it must be only 3 digits!"> 
+                                        <f:validateRegex pattern="^\d{3}$"/>
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="credit_card_CVV" style="color:red"/>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+
+                    <h:commandButton id="submit" value="Submit" 
+                                     action="#{myCustomerManagedBean.addCustomerTransaction()}"/>
+
+
+                </h:form>
+
+
+
+
+            </section>
+
+
+        </article>
+
+        <footer> <hr/>
+            <h4>Contact me:</h4>
+            <p>
+                Using  <a href="mailto:103172423@student.swin.edu.au" >Email</a>
+                or through<a href="hhtp://www.swinburne.edu.au"> Swinburne University</a> and searching Name: <a href="about.html"> SM RAGIB REZWAN</a>  (ID:103172423) 
+            </p>
+
+            <p><a href="enquire.html">Want buy Television ASAP?</a></p>
+        </footer>
+
+
+    </body>
+</html>
+
