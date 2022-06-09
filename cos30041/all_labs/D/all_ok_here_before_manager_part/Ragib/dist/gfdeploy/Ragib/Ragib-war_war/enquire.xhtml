@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   <h:head>
+        <title>Add a User Page</title>
+    </h:head>
+    <h:body>
+        <h1>
+            Add a User
+        </h1>
+        <h2>
+            <p>Please enter the user's details below</p>
+        </h2>
+        <h3>
+            <h:form>
+                    <table>
+                        <tbody>
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Transaction ID:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="transaction_id" 
+                                                 maxlength="10"
+                                                 required="true"
+                                                 requiredMessage="Please Enter the Transaction Id given to you by the employee"
+                                                 value="#{myCustomerManagedBean.transaction_id}">
+                                        <f:validateLength minimum="10" maximum="10"/>
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="transaction_id" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="First Name:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="firstname" 
+                                                 maxlength="20"
+                                                 required="true"
+                                                 requiredMessage="Please Enter your first name"
+                                                 value="#{myCustomerManagedBean.firstname}"
+                                                 validatorMessage="Please shorten your first name">
+                                        <f:validateLength minimum="20" maximum="20"/>
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="firstname" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Last Name:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="lastname" 
+                                                 maxlength="20"
+                                                 required="true"
+                                                 requiredMessage="Please Enter your last name"
+                                                 value="#{myCustomerManagedBean.lastname}"
+                                                 validatorMessage="Please shorten your last name">
+                                        <f:validateLength minimum="20" maximum="20"/>
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="lastname" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Email:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="email" 
+                                                 maxlength="20"
+                                                 required="true"
+                                                 requiredMessage="Please Enter your Email"
+                                                 value="#{myCustomerManagedBean.email}"
+                                                 validatorMessage="Please give a valid email">
+                                        <f:validateRegex pattern="^(. +)@(\S+) $"/>
+
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="email" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Address:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="address" 
+                                                 maxlength="20"
+                                                 required="true"
+                                                 requiredMessage="Please Enter your Address"
+                                                 value="#{myCustomerManagedBean.address}">                                        
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="address" style="color:red"/>
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Suburb:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="Suburb" 
+                                                 maxlength="20"
+                                                 required="true"
+                                                 requiredMessage="Please Enter your Suburb"
+                                                 value="#{myCustomerManagedBean.suburb}">                                        
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="suburb" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Postcode:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="postcode" 
+                                                 maxlength="20"
+                                                 required="true"
+                                                 requiredMessage="Please Enter your Postcode"
+                                                 value="#{myCustomerManagedBean.postcode}"
+                                                 validatorMessage="Post code must be 4 digits"> 
+                                        <f:validateRegex pattern="^\d{4}$"/>
+
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="postcode" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Phone Number:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="phone" 
+                                                 maxlength="20"
+                                                 required="true"
+                                                 requiredMessage="Please Enter your Phone Number"
+                                                 value="#{myCustomerManagedBean.phone}"
+                                                 validatorMessage="Phone number must be 10 digits"> 
+                                        <f:validateRegex pattern="^\d{10}$"/>
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="phone" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Product Price:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="price" 
+                                                 maxlength="20"
+                                                 required="true"
+                                                 requiredMessage="Please Enter the price of the product as stated by the employee"
+                                                 value="#{myCustomerManagedBean.price}"
+                                                 validatorMessage="Please enter the proper price. Price for Stark tv is: 100, VIbranium tv is: 200, Pubg tv is: 800,"> 
+                                        <f:validateRegex pattern="^[100|200|800]$"/>
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="price" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Quantity:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="quantity" 
+                                                 maxlength="20"
+                                                 required="true"
+                                                 requiredMessage="Please Enter the quantity of the product"
+                                                 value="#{myCustomerManagedBean.quantity}"
+                                                 validatorMessage="Quantity can only be a number"> 
+                                        <f:validateRegex pattern="^\d+$"/>
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="price" style="color:red"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+
+                                <td>
+                                    <h:outputLabel value="Comment:"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="comment" 
+                                                 maxlength="20"
+                                                 required="true"
+                                                 requiredMessage="Please Enter the comment you have regarding the product/ transaction"
+                                                 value="#{myCustomerManagedBean.comment}">                                         
+                                    </h:inputText>
+                                </td>
+                                <td>
+                                    <h:message for="price" style="color:red"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h:commandButton id="submit" value="Submit" 
+                                     action="#{myCustomerManagedBean.Enquire()}"/>
+
+
+
+                </h:form>
+        </h3>
+    </h:body>
+</html>
