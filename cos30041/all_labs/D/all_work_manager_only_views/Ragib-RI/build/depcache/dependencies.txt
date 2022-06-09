@@ -1,0 +1,7 @@
+||:entity.CustomerDTO
+entity.CustomerDTO
+java.lang.Object
+java.io.Serializable
+||:session.CustomerTransactionManagementRemote
+session.CustomerTransactionManagementRemote
+java.lang.Object
