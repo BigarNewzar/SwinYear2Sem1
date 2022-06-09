@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+
+<faces-config version="2.1"
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
+    <navigation-rule>
+        <description>form submission</description>
+        <from-view-id>/enquire.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{myCustomerManagedBean.Enquire()}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/payment.xhtml</to-view-id>
+        </navigation-case>         
+        <navigation-case>
+            <from-action>#{myCustomerManagedBean.Enquire()}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/enquireFailure.xhtml</to-view-id>
+        </navigation-case>        
+    </navigation-rule>
+    
+    
+
+    <navigation-rule>
+        <description>if success send to database and display in webpage
+            and return to homepage</description>
+        <from-view-id>/payment.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{myCustomerManagedBean.addCustomerTransaction()}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/paymentSuccess.xhtml</to-view-id>
+        </navigation-case>
+    
+    
+        <navigation-case>
+            <from-action>#{myCustomerManagedBean.addCustomerTransaction()}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/paymentFailure.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{myCustomerManagedBean.addCustomerTransaction()}</from-action>
+            <from-outcome>debug</from-outcome>
+            <to-view-id>/debug.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <description>using transaction id for view to success or fail</description>
+        <from-view-id>/admin/viewTransactionId.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{myCustomerManagedBean.displayCustomerTransaction()}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/admin/viewTransactionSuccess.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{myCustomerManagedBean.displayCustomerTransaction()}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/admin/viewTransactionFailure.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+   
+</faces-config>

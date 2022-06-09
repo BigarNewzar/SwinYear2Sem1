@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <meta charset="utf-8"  />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <!--refernece: https://www.w3schools.com/html/html_responsive.asp-->
+        <!--it makes it appropriate for mobile and tablet use-->
+
+        <meta name="description"  content="Tv purchase, View Condition" />
+        <meta name="keywords"  content="Tv purchase, View Condition" />
+        <meta name="author"  content="S M Ragib Rezwan" />
+
+        <link href="/Ragib-war/cssStyle/cssMain.css" rel="stylesheet"/>
+        <link rel="icon" href="/Ragib-war/images/logoMain.png" type="image/x-icon"/>
+        <!--refernece: https://www.w3schools.com/tags/att_link_sizes.asp -->
+        <!--it adds a logo beside tab bar-->
+        <title>Ragib Televisions (View Condition)</title> 
+    </h:head>
+    <h:body>
+
+        <h2>Please enter the details of an employee</h2>
+
+        <h:form>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <h:outputLabel value="Transaction Id:"/>
+                        </td>
+                        <td>
+                            <h:inputText title="transaction_Id" id="transaction_Id"
+                                         required="true" 
+                                         requiredMessage="transaction_Id must not be blank"
+                                         maxlength="5" 
+                                         value="#{myCustomerManagedBean.transaction_id}">
+                                <f:validateLength minimum="1" maximum="5"/>
+                            </h:inputText>
+                        </td>
+                        <td>
+                            <h:message for="empid" style="color:red"/>
+                        </td>
+                    </tr>
+                   
+
+                </tbody>
+            </table>
+
+            <p></p>
+
+            <h:commandButton id="submit" value="Submit" 
+                             action="#{myCustomerManagedBean.displayCustomerTransaction()}"/>
+
+        </h:form>
+    </h:body>
+</html>
+
+
+

@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <head>
+        <meta charset="utf-8"  />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <!--refernece: https://www.w3schools.com/html/html_responsive.asp-->
+        <!--it makes it appropriate for mobile and tablet use-->
+        <meta name="description"  content="Tv purchase, product" />
+        <meta name="keywords"  content="Tv purchase, product" />
+        <meta name="author"  content="S M Ragib Rezwan" />
+
+        <link href="cssStyle/cssMain.css" rel="stylesheet"/>
+        <link rel="icon" href="/Ragib-war/images/logoMain.png" type="image/x-icon"/>
+        <!--refernece: https://www.w3schools.com/tags/att_link_sizes.asp -->
+        <!--it adds a logo beside tab bar-->
+        <title>Ragib Televisions (Products)</title> 
+    </head>
+    <body>
+
+        <header>
+            <nav>
+                <a href="index.xhtml"> Home </a> |
+                <a href="product.xhtml">Products</a> |
+                <a href="enquire.xhtml">Enquire</a> |
+                <a href="about.xhtml"> Owner Details</a>|
+                <a href="admin/managerLogin.xhtml"> Manager</a>  
+                <hr/>
+                <!-- make navigation bar fixed by putting them in class and  giving
+                class {position: fixed; top:0; width:100%} -->
+                <!--refernce from: https://www.w3schools.com/css/css_navbar_horizontal.asp -->
+            </nav>
+        </header>
+
+
+        <aside id="right"> <!--put advert here to right of page-->
+            <figure>
+
+                <a href="https://www.primevideo.com/region/eu" >
+                    <img class="img" src="images/stream.png" alt="amazon stream advert" align="right"/>
+                </a>
+
+                <!-- advert 1 src = https://www.pinterest.com/pin/561964859746504753/-->
+
+            </figure>
+        </aside>
+
+
+        <h1 id="bring_down"> 
+            Fabulous Products that await you: 
+        </h1>
+
+
+        <article>
+            <section id="fixit">
+                <table id="Product_Summary">
+                    <caption> A Brief summary of products </caption>
+
+                    <thead>
+                        <tr>
+                            <th> Name</th>
+                            <th> Size (inch)</th>
+                            <th> Stock</th>
+                            <th> Warranty (years)</th>
+                            <th> price ($)</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td> <a href="product.xhtml#N1"> Stark </a> <em> <!--make this red using Css-->hot</em></td>
+                            <td> 10</td>
+                            <td> 550</td>
+                            <td> 5 </td>
+                            <td> 100</td>
+
+                        </tr>
+                        <tr>
+                            <td> <a href="product.xhtml#N2"> Vibranium </a><em> <!--make this red using Css-->hot</em></td>
+                            <td> 8</td>
+                            <td> 600</td>
+                            <td> 4</td>
+                            <td> 200</td>
+
+                        </tr>
+                        <tr>
+                            <td><a href="product.xhtml#N3"> PUBG Mania </a> </td>
+                            <td> 6</td>
+                            <td> 750</td>
+                            <td> 3</td>
+                            <td> 800</td>
+
+                        </tr>
+                    </tbody>			
+                </table>
+
+            </section>
+
+
+
+
+
+            <section class="product_details" >
+
+                <h2 id="N1" class="bu">Stark</h2>
+
+                <aside class="right2">
+                    <figure>
+                        <img class="img" src="images/stark.jpg" alt="pic of stark tv"/>
+                        <figcaption> 
+                            Stark tv
+                        </figcaption>
+
+                        <!--reference: https://www.pinterest.com/pin/677369600191265196/-->
+
+                    </figure>
+                    
+                </aside>
+
+                <h3>Statistics:</h3>
+
+                <ul >
+                    <li>  Price: <strong>$10,000</strong></li>
+                    <li> Size of screen: 10 inch</li>
+                    <li> Warranty: 5 year</li>
+                    <li> Brand: Stark Enterprise</li>
+                    <li> Resolution: 5k</li>
+                    <li> Attachments: 
+                        <ul> 
+                            <li>Wired speakers</li>
+                            <li>Wireless speakers:
+                                <ol><li>Bluetooth speakers</li>
+                                    <li>Wifi speakers</li> </ol>
+                            </li>			
+                        </ul>
+                    </li>
+                    <li> Remaining Stock: 550</li>
+
+                </ul>
+            </section>
+
+            <section class="product_details" >
+
+                <h3> Details about the product:</h3>
+
+                <p> This is a revolutionary piece of technology released by stark enterprises. 
+                    <br/>
+                    Hence, it can not only let you watch television channels via cable line, but also let you watch Youtube and browse via internet itself.
+                </p>
+                <p>
+                    Along with that comes Mr. Stark's, state of the art, wired and wireless speakers, created with the capability to produce 3D sounds with 100% accuracy. 
+                    <br/>
+                    Can you imagine the joy of listening to music so clear that you feel as you're in the show itself, instead of sitting at your home? It's truly amazing.
+                </p>
+                <p>
+                    Furthermore, it also comes in with the additional feature of having a prototype AI names Jarvis, a virtual assistant ages ahead of Siri and Alexa. 
+                    <br/>
+                    Hence, it won't just run your television. Instead, if permitted, it will also be able to take care of your home Wifi, security, privacy and so much more. 
+
+                </p>
+                <p>
+                    So calling it a television doesn't do it justice. Instead it's more accurate to call it a one in for all technology that can fulfill all of your dreams, instantly.
+                </p>
+
+                <p><strong> [reference: iron-man character from: avengers; iron-man 1,2,3]</strong></p>
+                <!-- the "details about the product" part has 172 words in total-->
+                <!-- reference: iron-man character from: avengers; iron-man 1,2,3; etc. movies-->
+
+                <p class="centre">
+                    <a href="enquire.xhtml"> Want to add to cart? </a> 
+                </p>
+            </section>
+
+
+
+
+
+
+
+
+            <section class="product_details">
+
+                <h2 id="N2" class="bu">Vibranium</h2>
+
+                <aside class="right2">
+                    <figure>
+                        <img class="img" src="images/vibranium.jpg" alt="pic of vibranium tv"/>
+                        <figcaption> 
+                            Vibranium Tv
+                        </figcaption>
+
+                        <!--reference: https://oe.co.ke/product/samsung-32-digital-television/ -->
+
+                    </figure>
+                   
+                </aside>
+
+                <h3>Statistics:</h3>
+
+                <ul>
+                    <li> Price: <strong>$12,000</strong></li>
+                    <li> Size of screen: 8 inch</li>
+                    <li> Warranty: 4 year</li>
+                    <li> Brand: Black Panther</li>
+                    <li> Resolution: 6k</li>
+                    <li> Attachments : 
+                        <ul> 
+                            <li>Wired speakers</li>
+                            <li>Wireless speakers:
+                                <ol>
+                                    <li>Bluetooth speakers</li>
+                                    <li>Wifi speakers</li> 
+                                </ol>
+                            </li>			
+                        </ul>
+                    </li>
+                    <li> Remaining Stock: 600</li>
+
+                </ul>
+            </section>
+
+            <section class="product_details">
+
+                <h3> Details about the product:</h3>
+
+                <p> Black Panther, a company well-known for making almost indestructible body armor and weapons, and television, a product that can be seen almost everyone's homes.
+                    <br/>
+                    Can you guess what the outcome will be?
+                    <br/>
+                    Well, if you guessed an indestructible television that can even survive a nuclear strike, you are absolutely right!
+                </p>
+                <p>
+                    Along with that sleek, state-of-art, indestructible body comes buffed up attachments in the form of speakers. Like other televisions in the market, it also provides the usual 3 variation of speakers. Except with one crucial difference. Like the television, they are also extremely durable and damage resistant. Hence chances of you needing maintenance on the attachments, is extremely slim.
+                </p>
+                <p>
+                    So, in short, what you are purchasing isn't just a television anymore. Instead, it's a tool that can even protect your life, should the need arise. Moreover, it won't even need much maintenance, unlike your ordinary television from the local store. Hence it's a huge bargain!
+
+                </p>
+
+                <p><strong> [reference: Black Panther character from: Black Panther]</strong></p>
+
+                <!-- the "details about the product" part has 155 words in total-->
+                <!-- reference: Black panther character from: black panther; etc. movies-->
+
+                <p class="centre">
+                    <a href="enquire.xhtml" > Want to add to cart? </a> </p>
+            </section>
+
+
+            <section class="product_details">
+
+                <h2 id="N3" class="bu" >PUBG Mania</h2>
+
+                <aside class="right2">
+                    <figure>
+                        <img class="img" src="images/pubg.jpg" alt="pic of Pubg mania tv"/>
+                        <figcaption> 
+                            Pubg tv
+                        </figcaption>
+
+                        <!--reference: https://www.google.com/search?q=pubg+tv&client=firefox-b-d&biw=1600&bih=758&tbm=isch&sxsrf=ALeKk01UeOPBk60ZQE9upxijsPcg-qh52A:1616019160359&source=lnms#imgrc=IXn-z2DeYoXc7M&imgdii=wlTJZsbj6ZklSM
+
+                        https://www.youtube.com/watch?v=rIgHVdxO6Dw
+                        -->
+
+                    </figure>
+                    
+                </aside>
+
+                <h3>Statistics:</h3>
+
+                <ul>
+                    <li> <!--make it bold--> Price: $8,000</li>
+                    <li> Size of screen: 6 inch</li>
+                    <li> Warranty: 3 year</li>
+                    <li> Brand: Pubg Corporations</li>
+                    <li> Resolution: 8k</li>
+                    <li> Attachments : 
+                        <ul> 
+                            <li>Wired speakers</li>
+                            <li>Wireless speakers:
+                                <ol>
+                                    <li>Bluetooth speakers</li>
+                                    <li>Wifi speakers</li> 
+                                </ol>
+                            </li>			
+                        </ul>
+                    </li>
+                    <li> Remaining Stock: 750</li>
+
+                </ul>
+            </section>
+
+            <section class="product_details">
+
+                <h3> Details about the product:</h3>
+
+                <p>PUBG Corporation is an upcoming company that has made a huge name for itself in the Mobile Gaming market via the Game PUBG (Players Underground Battle Royale) from 2016, earning a hefty income. Now, with that success running on its back, the company has decided to dabble in to the field of television as well, to further promote its user's experience. Thus, PUBG Mania was born. 
+                </p>
+                <p>
+                    Capability of sustaining high speed internet connection, auto changing graphic levels to maintain 0 lag spikes, and capacity for screen mirroring are just some of the key features that this marvelous piece of technology that sets it apart from the rest. Alongside these, it also provides a large storage space, allowing you to download and store various games and videos with ease. 
+                </p>
+                <p>
+                    Unfortunately, since it is new to the market, it has yet to provide a console or any other gaming accessories that can well pair up with the television set, both in terms of style and effectiveness. Thus, it is currently used mostly by streamers who play the game on live stream
+                </p>
+                <p>
+                    So, in short, if you are a streamer who wants a television that won’t buffer and also, live stream and screen cast without any delay what so ever, this is the television for you 
+                </p>
+
+                <p><strong> [reference: PUBG Game]</strong></p>
+                <!-- the "details about the product" part has 213 words in total-->
+                <!-- reference: PUBG game-->
+
+                <p class="centre">
+                    <a href="enquire.xhtml"> Want to add to cart? </a> 
+                </p>
+
+
+            </section>
+        </article>
+
+        <footer> <hr/>
+            <h4>Contact me:</h4>
+            <p>
+                Using  <a href="mailto:103172423@student.swin.edu.au" >Email</a>
+                or through<a href="hhtp://www.swinburne.edu.au"> Swinburne University</a> and searching Name: <a href="about.xhtml"> SM RAGIB REZWAN</a>  (ID:103172423) 
+            </p>
+
+
+            <p><a href="enquire.xhtml">Want buy Television ASAP?</a></p>
+        </footer>
+    </body>
+</html>
+

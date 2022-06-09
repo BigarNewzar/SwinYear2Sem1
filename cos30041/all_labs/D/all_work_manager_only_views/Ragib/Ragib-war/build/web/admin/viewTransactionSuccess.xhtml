@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <meta charset="utf-8"  />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <!--refernece: https://www.w3schools.com/html/html_responsive.asp-->
+        <!--it makes it appropriate for mobile and tablet use-->
+        <meta name="description"  content="Tv purchase, View Success" />
+        <meta name="keywords"  content="Tv purchase, View Success" />
+        <meta name="author"  content="S M Ragib Rezwan" />
+
+        <link href="/Ragib-war/cssStyle/cssMain.css" rel="stylesheet"/>
+        <link rel="icon" href="/Ragib-war/images/logoMain.png" type="image/x-icon"/>
+        <!--refernece: https://www.w3schools.com/tags/att_link_sizes.asp -->
+        <!--it adds a logo beside tab bar-->
+        <title>Ragib Televisions (View Success)</title>
+    </h:head>
+    <h:body>
+        
+        <h:form id="payment">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Transactione Id:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.transaction_id}"/>
+                                </td>
+                                
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="First Name:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.firstname}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Last Name:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.lastname}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Email:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.email}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Address:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.address}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Suburb:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.suburb}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Postcode:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.postcode}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Phone number:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.phone}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Product Name:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.product_name}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Quantity:"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.quantity}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Comment"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.comment}"/>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card name"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.credit_card_name}"/>
+                                </td>
+                            </tr>
+                            
+                             <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card Number"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.credit_card_number}"/>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card Expiry Date"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.credit_card_expiry_date}"/>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="Credit Card CVV"/>
+                                </td>
+                                <td>
+                                    <h:outputText value="#{myCustomerManagedBean.credit_card_CVV}"/>
+                                </td>
+                            </tr>
+                                    
+                        </tbody>
+                    </table>
+                    
+                    
+                </h:form>
+
+        Click <h:outputLink value="managerMenu.xhtml">here</h:outputLink>
+        to return to the Main Menu
+        
+    </h:body>
+</html>
+
